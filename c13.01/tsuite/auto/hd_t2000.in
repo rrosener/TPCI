@@ -1,0 +1,67 @@
+title test large H2 molecule in shock-like conditions
+c
+c commands controlling continuum =========
+c there is a continuum but it is unimportant
+c first continuum is FIR hot grain continuum produced in 
+c unmodeled HII Region
+black 30000
+intensity  -5 range  0.4412 to 1 Ryd
+c this will remove all ionizing radiation
+extinguish 24 0
+c must provide source of ionization for chemistry 
+cosmic rays, background
+c
+c commands for density & abundances =========
+hden 6
+grains ism, abundance log 0.16 single
+init file="ism.ini"
+abundances he -1.01 c -3.52 n-8 o-3.30 ne-8 mg-5.89
+continue si -6.10 s -5.10 cl=-7 ar-8 fe -6.60
+c
+c commands controlling geometry  =========
+stop zone 10
+c force zone thickess to 1 cm 
+set dr 0 
+c need to lower stop temperature since gas is cooler than 4000K
+stop temperature 3
+c
+c other commands for details     =========
+failures 2 
+set isotopes all
+atom hd  
+constant temperature 2000 
+iterate
+c this stop Lymnan line excitation of H, which is then photoionized
+c by Balmer continuum
+case b
+c
+c commands controlling output    =========
+normalize to "HD  " 2.494m
+c 
+save dominant rates "hd_t2000.oh" "OH" last
+save dominant rates "hd_t2000.ohp" "OH+" last
+save dominant rates "hd_t2000.hd" "HD" last
+save monitors "hd_t2000.asr"
+save pdr "hd_t2000.pdr"
+save chemistry rates "hd_t2000.h2d" "HD" destruction
+save raw continuum "hd_t2000.raw"
+save continuum "hd_t2000.con"
+save overview "hd_t2000.ovr"
+save species populations "hd_t2000.pop"
+save species energies "hd_t2000.enr"
+save species column densities "hd_t2000.col"
+c
+c commands giving the monitors    =========
+// >>chng 05 aug 06, par chng to be in lte, everything chenged
+c monitor hd column  5.62 error 0.15
+monitor line "HD  " 2.458m 0.3076
+monitor line "HD  " 11.59m 0.3856
+monitor line "HD  " 2.428m 0.7919
+//
+c hd_t2000.in 
+c class limit  
+c ========================================
+
+This is a collisionally dominated HD simulation.  The temperature
+has been fixed at 2000K and the large molecule turned on.
+

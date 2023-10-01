@@ -1,0 +1,41 @@
+c optimize for 'star-forming region'
+table draine 3 log
+extinguish 24
+hden 6.576 vary 
+c
+cosmic ray background
+cmb
+c
+stop CO column density 18.919 vary
+stop temperature off
+c
+set 12C13 50
+iterate
+c
+normalize to "CO  " 650.1m
+set save prefix "optimize_leiden12_sfr"
+save leiden ".lei" last
+save overview ".ovr" last
+save dr ".dr" last
+c optimize intensity -4.006 0.07
+optimize lines
+CO   650.1m	1.000	0.07
+CO   520.1m	2.292	0.03
+CO   433.4m	4.087	0.02
+CO   371.5m	6.755	0.01
+CO   325.1m	9.878	0.01
+CO     289m	13.286	0.02
+CO   260.2m	16.734	0.01
+CO   236.5m	19.574	0.01
+CO   216.9m	22.211	0.01
+CO   200.2m	23.935	0.01
+^13C   544m	0.644	0.10
+^13C 453.4m	1.075	0.06
+^13C 388.6m	1.694	0.04
+^13C 340.1m	2.312	0.03
+^13C 302.3m	3.002	0.08
+^13C 272.1m	3.103	0.08
+^13C 247.4m	2.799	0.09
+^13C 226.8m	2.252	0.11
+^13C 209.4m	1.765	0.14
+end of lines

@@ -1,0 +1,20 @@
+##############################################################
+#
+# Define nice dark blue to dark green palette for Gnuplot
+#
+# set palette file './gpl.blue-green-palette.gpl' using 1:2:3
+# set logscale cb
+# set cbrange [:]
+# plot ... w l lc palette  cb i  not
+#
+# (M.Salz)
+#
+##############################################################
+#
+#  R    G    B      # Hex
+
+  0.0  0.0  0.2     # 000033
+  0.0  0.0  0.7     # 0000B3
+  0.0  0.9  0.9     # 00E6E6
+  0.0  0.7  0.0     # 00B300
+  0.0  0.2  0.0     # 003300

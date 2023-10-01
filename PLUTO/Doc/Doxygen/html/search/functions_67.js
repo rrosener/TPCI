@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['getcurrent',['GetCurrent',['../res_8h.html#ac8120ec5c5c90a1cfa126944459580f7',1,'GetCurrent(Data_Arr, real **, Grid *):&#160;res_functions.c'],['../res__functions_8c.html#a156ab9880ca6cf0d15eed21f56ba6942',1,'GetCurrent(Data_Arr V, double **curlB, Grid *grid):&#160;res_functions.c']]],
+  ['getnexttimestep',['GetNextTimeStep',['../main_8c.html#a372ea2191a8b357f5dcb57af54a373c3',1,'GetNextTimeStep(Time_Step *, struct INPUT *, Grid *):&#160;main.c'],['../_new_2main_8c.html#a372ea2191a8b357f5dcb57af54a373c3',1,'GetNextTimeStep(Time_Step *, struct INPUT *, Grid *):&#160;main.c']]],
+  ['getnghost',['GetNghost',['../get__nghost_8c.html#a33d38088e6920548541477dc6fea2272',1,'get_nghost.c']]],
+  ['getoutputfrequency',['GetOutputFrequency',['../setup_8c.html#ad00e35b819f0748f132576c675f5bab5',1,'setup.c']]],
+  ['getrightmostindex',['GetRightmostIndex',['../jet__domain_8c.html#adb97bc4e2a832e98c24285541bed9e94',1,'jet_domain.c']]],
+  ['getuservar',['GetUserVar',['../set__output_8c.html#a46cbd2883dcc4c33e4f1fe3e74b8aae9',1,'set_output.c']]],
+  ['glm_5finit',['GLM_Init',['../_m_h_d_2_g_l_m_2glm_8c.html#a4c965f31be3f547d3ff45158daa593fb',1,'GLM_Init(const Data *d, const Time_Step *Dts, Grid *grid):&#160;glm.c'],['../glm_8h.html#a50b706a077ad71dba043b93d789d4376',1,'GLM_Init(const Data *, const Time_Step *, Grid *):&#160;glm.c'],['../_new_2glm_8c.html#a4c965f31be3f547d3ff45158daa593fb',1,'GLM_Init(const Data *d, const Time_Step *Dts, Grid *grid):&#160;glm.c']]],
+  ['glm_5fsolve',['GLM_Solve',['../_m_h_d_2_g_l_m_2glm_8c.html#adf43cde0ab26ccbdf6890ce165b023b3',1,'GLM_Solve(const State_1D *state, double **VL, double **VR, int beg, int end, Grid *grid):&#160;glm.c'],['../glm_8h.html#a1e39b2e3fc2139dbef1fd1bc297e1d6b',1,'GLM_Solve(const State_1D *, double **, double **, int, int, Grid *):&#160;glm.c'],['../_new_2glm_8c.html#adf43cde0ab26ccbdf6890ce165b023b3',1,'GLM_Solve(const State_1D *state, double **VL, double **VR, int beg, int end, Grid *grid):&#160;glm.c']]],
+  ['glm_5fsource',['GLM_Source',['../_m_h_d_2_g_l_m_2glm_8c.html#a9daf68416940f714f3bd1f74a21e30fd',1,'GLM_Source(const Data_Arr Q, double dt, Grid *grid):&#160;glm.c'],['../glm_8h.html#a793d2e1cde4e678c8fe569a03bda5484',1,'GLM_Source(const Data_Arr, double, Grid *):&#160;glm.c'],['../_new_2glm_8c.html#a9daf68416940f714f3bd1f74a21e30fd',1,'GLM_Source(const Data_Arr Q, double dt, Grid *grid):&#160;glm.c']]]
+];

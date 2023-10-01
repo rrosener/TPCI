@@ -1,0 +1,10 @@
+    1
+   26   14  1.2460e+03  1.0630e+04  4.7190e+04  1.9520e+05  5.6370e+05  2.2480e+06  7.2020e+06  3.9990e+09
+   26   14  1.0900e-03  7.8010e-03  1.1320e-02  4.7400e-02  1.9900e-01  3.3790e-02  1.1400e-01  1.2500e-01
+-1
+%file:  fe_14.drparams
+%parameters for dielectronic recombination rate coefficients
+recombination:  Badnell, N. R., 2006, ApJ, 651, L73
+ produced for the CHIANTI atomic database for astrophysical spectroscopy
+ created by Ken Dere (GMU):  Fri Feb  1 15:06:56 2008
+-1

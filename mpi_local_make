@@ -1,0 +1,39 @@
+# *********************************************************
+#                                                     
+#          local makefile for the interface
+#                PLUTO 4.0 - Cloudy 13.01                            
+#                                                     
+# Fore use:
+# - replace $(CC) with mpic++ in the makefile
+# - add $(CLOUDY_OBJ) to the objects being linked to pluto
+# - export CLOUDY_DIR="path to Cloudy source dir"
+#
+# 2013 May 24th - M.Salz
+#
+# *********************************************************
+
+# ---------------------------------------------------------
+#         Add flags to suppress errors
+# ---------------------------------------------------------
+
+CPPFLAGS = -O3 -Wno-write-strings -DPARALLEL
+CFLAGS += -Wno-write-strings 
+
+# ---------------------------------------------------------
+#   Add the interface and Cloudy objects to the OBJ list
+# ---------------------------------------------------------
+
+CL_OBJECTS = $(wildcard $(CLOUDY_DIR)/*.o)
+CLOUDY_OBJ = $(filter-out %maincl.o, $(CL_OBJECTS))
+OBJ += call_cloudy.o
+
+# ---------------------------------------------------------
+#  Use g++ for compiling the main file and the interface
+# ---------------------------------------------------------
+
+main.o : main.cpp  $(HEADERS)
+	mpic++ -c $(CPPFLAGS) $(INCLUDE_DIRS) -I.../TPCI/PLUTO/Src/Parallel $<
+
+call_cloudy.o : call_cloudy.cpp  $(HEADERS) $(CLOUDY_DIR)/cddefines.h $(CLOUDY_DIR)/cddrive.h
+	mpic++ -c $(CPPFLAGS) -I$(CLOUDY_DIR) $(INCLUDE_DIRS) -I.../TPCI/PLUTO/Src/Parallel $<
+

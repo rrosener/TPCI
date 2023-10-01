@@ -1,0 +1,12 @@
+title test whether the output from a repeated model reproduces exactly
+% checkall.pl calls test_grid.pl to check that output is identical
+print depart he-like element helium
+trace h-like full helium
+trace he-like full
+trace heavy 
+trace convergence esource
+test
+no time
+fudge 0 vary
+grid 0 to 1 1 repeat
+iterate 3

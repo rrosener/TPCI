@@ -1,0 +1,21 @@
+###################################################################
+#
+# START ANIMATION
+# - start an evolution of the variable >nvar>
+# - load with:
+#  nvar=3; nbeg=500; inc=10; load "animate1D.gpl"
+#
+# (M.Salz)
+#
+###################################################################
+
+
+plot "./data.".(nbeg<10 ? "000".nbeg:(nbeg<100 ? "00".nbeg:(nbeg<1000 ? "0".nbeg:nbeg))).".tab" u 1:nvar w l not
+
+limit_iterations=9999
+pause -1 "Press a key to start the rotation..."
+
+n_iter = nbeg+1
+load "evolve1D.gpl"
+
+

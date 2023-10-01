@@ -1,0 +1,12 @@
+    2
+    4    2    1  1.7930e-10   0.76690 8.9380e-01 2.1380e+06   0.03100  1.3820e+04
+-1
+%file:  be_2.rrparams
+recombination:  Badnell, N. R., 2006, ApJSS, 167, 334
+radiative recombination rate coefficients listed at:
+   http://amdpp.phys.strath.ac.uk/tamoc/DATA/RR/
+These calculations have been performed by a collaboration of researchers at:
+    Auburn University, Rollins College, and the University of Strathclyde.
+ produced for the CHIANTI atomic database for astrophysical spectroscopy
+ created by Ken Dere (GMU):  Thu Jan 31 13:05:22 2008
+-1

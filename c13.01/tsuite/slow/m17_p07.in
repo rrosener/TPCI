@@ -1,0 +1,179 @@
+title Pellegrini et al 2008 model for M17
+c a brief description of its purpose
+c
+c commands controlling incident radiation field =========
+c these give the shape and intensity
+brems 8500000K 
+luminosity 33.5 range 7.35 to 176 Ryd
+table star CoStar, 47490K
+Q(h) 49.63 
+table star CoStar, 45335K 
+Q(h) 49.47 
+table star CoStar, 43151K 
+Q(h) 49.30 
+table star CoStar, 41209K 
+Q(h) 49.18 
+table star CoStar, 39084K 
+Q(h) 49.08 
+table star CoStar, 36982K 
+Q(h) 48.81 
+table star atlas, 34914K 
+Q(h) 48.97 
+table star atlas,27700K 
+absolute bolometric magnitude -8.5 
+table star atlas, 23700K 
+absolute bolometric magnitude -7.5 
+table star atlas, 20350K 
+absolute bolometric magnitude -6.6 
+table star atlas, 17050 
+absolute bolometric magnitude -6.3 
+CMB
+c
+c commands for density & abundances =========
+hden 2.065
+abundances H II region no qheat no grains 
+grains PAH 10 
+grains orion 1 
+element Helium abundance -0.98 
+element Carbon abundance -4.14 
+element Nitrogen abundance -4.2 
+element Oxygen abundance -3.47 
+element Neon abundance -4.4 
+element Sulphur  abundance -5.06 
+element Chlorine abundance -6.88 
+element Argon abundance -5.64 
+element Iron abundance -5.5 
+c these are to speed things up a bit
+element limit off -6.9
+c
+c commands controlling geometry  =========
+radius 0.35355 linear parsecs 
+c the observed extinction along this sight line
+stop Av extended 6.36 
+c do not want to stop at too small a depth due to low temperature
+stop temperature off
+c magnetostatic equilibrium
+constant pressure 
+sphere 
+c
+c other commands for details     =========
+magnetic field tangled -4.3125 2
+turbulence 3km/s
+iterate
+// >>chng 12 apr 10, new background 7.9x larger than old,
+// so lower scale factor by this amount to keep model the same
+cosmic rays background 1.60
+c
+c commands controlling output    =========
+save performance "m17_p07.per"
+save lines emissivity last "m17_p07.ems" 
+H  1 6563 
+S  2 6720 
+CO   1300m 
+CO   2600m 
+CO   866.7m 
+CO   371.5m 
+C  2 157.6m 
+C  1 369.7m 
+C  1 609.2m 
+O  1 63.17m 
+O  1 145.5m 
+Si 2 34.81m
+end of line 
+print line sort wavelength
+print line optical depths faint -100
+save species last "m17_p07.oh" "OH" populations
+save overview last "m17_p07.ovr" 
+save monitors last "m17_p07.asr" 
+save hydrogen 21 CM last "m17_p07.h21"
+save pressure last "m17_p07.pre" 
+save molecules last "m17_p07.mol" 
+save heating last "m17_p07.het"
+save cooling last "m17_p07.col"
+save monitors last "m17_p07.asr"
+save continuum last "m17_p07.con" units microns
+c
+c commands giving the monitors    =========
+monitor line luminosity "H  1" 6563 38.0166
+// >>chng 11 jul 14, from 36.69 to 36.61, update after run with stellar grids
+// >>chng 13 feb 02, from 36.61 to 36.66, BUGFIX, largely undo r6703 (missed osince stars not installed)
+monitor line luminosity "S  2" 6720 36.66
+// 
+// >>chng 10 mar 03, from 33.71 to 34, fix botches after CO changes
+// >>chng 10 jun 22, from 34 to 33.96, fix botches after dBaseLines cooling/heating changes
+// >>chng 10 dec 22, from 33.96 to 33.93, update lamda in r4457
+// >>chng 11 nov 16, from 33.93 to 33.95, adjust newmole monitors
+// >>chng 11 dec 12, from 33.95 to 33.81, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "CO  " 1300m 33.81
+// 
+// >>chng 10 mar 03, from 32.98 to 33.13, fix botches after CO changes
+// >>chng 10 jun 22, from 33.13 to 33.1, fix botches after dBaseLines cooling/heating changes
+// >>chng 10 dec 22, from 33.1 to 33.078, update lamda in r4457
+// >>chng 11 nov 16, from 33.08 to 33.1, adjust newmole monitors
+// >>chng 11 dec 12, from 33.1 to 32.94, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "CO  " 2600m 32.94
+// 
+// >>chng 10 mar 03, from 33.83 to 34.19, fix botches after CO changes
+// >>chng 10 jun 22, from 34.19 to 34.15, fix botches after dBaseLines cooling/heating changes
+// >>chng 10 dec 22, from 34.15 to 34.11, update lamda in r4457
+// >>chng 11 nov 16, from 34.11 to 34.14, adjust newmole monitors
+// >>chng 11 dec 12, from 34.14 to 33.99, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "CO  " 866.7m 33.99
+// 
+// >>chng 10 mar 03, from 32.2 to 33.08, fix botches after CO changes
+// >>chng 10 jun 22, from 33.08 to 33.01, fix botches after dBaseLines cooling/heating changes
+// >>chng 10 aug 23, from 33.01 to 32.97, first run since change continuum grid
+// >>chng 10 dec 22, from 32.97 to 33.04, update lamda in r4457
+// >>chng 11 jun 22, from 33.04 to 33.06, tune Te solver
+// >>chng 11 dec 12, from 33.06 to 33.03, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "CO  " 371.5m 33.03
+// 
+// >>chng 11 dec 12, from 36.74 to 36.56, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "C  2" 157.6m 36.56
+// >>chng 10 aug 23, from 35.15 to 35.05, first run since change continuum grid
+// >>chng 11 apr 27, from 35.05 to 35.073, r4955: higher precision A_V integration
+// >>chng 11 nov 28, from 35.07 to 35.04, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 12, from 35.04 to 35.48, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "C  1" 369.7m 35.48
+// >>chng 10 aug 23, from 34.67 to 34.59, first run since change continuum grid
+// >>chng 11 jun 23, from 34.59 to 34.61, tune Te solver (average of 3 runs)
+// >>chng 11 nov 28, from 34.61 to 34.57, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 12, from 34.57 to 34.98, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "C  1" 609.2m 34.98
+// >>chng 10 aug 23, from 37 to 37.02, first run since change continuum grid
+// >>chng 11 dec 12, from 37.02 to 36.76, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "O  1" 63.17m 36.76
+// >>chng 10 aug 23, from 35.88 to 35.91, first run since change continuum grid
+// >>chng 11 nov 16, from 35.91 to 35.89, adjust newmole monitors
+// >>chng 11 dec 12, from 35.89 to 35.62, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "O  1" 145.5m 35.62
+// >>chng 10 aug 23, from 36.37 to 36.39, first run since change continuum grid
+// >>chng 11 nov 16, from 36.39 to 36.36, adjust newmole monitors
+// >>chng 11 dec 12, from 36.36 to 36.17, bug-fix for updating grain opacity (r5759)
+monitor line luminosity "Si 2" 34.81m 36.17
+// 
+// >>chng 10 jul 19, from 15.85 to 15.83, slow drift
+// >>chng 10 aug 23, from 15.83 to 15.77, first run since change continuum grid
+// >>chng 11 dec 12, from 15.77 to 16.15, bug-fix for updating grain opacity (r5759)
+monitor column density  OH 16.15 error 0.1
+// 
+// >>chng 11 dec 12, from 21.42 to 21.5, bug-fix for updating grain opacity (r5759)
+monitor column density  H2 21.5 error 0.1
+// >>chng 10 jun 22, from 16.18 to 16.15, fix botches after dBaseLines cooling/heating changes
+// >>chng 11 nov 16, from 16.15 to 16.17, adjust newmole monitors
+// >>chng 11 dec 12, from 16.17 to 16.01, bug-fix for updating grain opacity (r5759)
+monitor column density  CO 16.01
+// 
+monitor temperature hydrogen 2 radius 3.992
+// >>chng 10 aug 23, from 2.902 to 2.929, first run since change continuum grid
+// >>chng 11 dec 12, from 2.929 to 2.794, bug-fix for updating grain opacity (r5759)
+monitor temperature hydrogen 1 radius 2.794
+monitor temperature H2 radius 2.028
+c
+c m17_P07.in 
+c class hii pdr 
+c ========================================
+c 
+
+This is the magnetostatic model of the M17 H+ / H0 / H2 region
+presented in Pellegrini et al. 2007, ApJ, 658, 1119

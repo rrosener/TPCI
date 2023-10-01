@@ -1,0 +1,39 @@
+###################################################################
+#
+# EVOLVE ANIMATION
+# - called from "animate.gpl"
+#
+# (M.Salz)
+#
+###################################################################
+
+if ( n_iter<10 ) \
+  fname=sprintf("data.000%i.tab",n_iter); \
+else if ( n_iter<100 )  \
+  fname=sprintf("data.00%i.tab",n_iter); \
+else if ( n_iter<1000 ) \
+  fname=sprintf("data.0%i.tab",n_iter); \
+else \
+  fname=sprintf("data.%i.tab",n_iter)
+
+print fname
+
+com  = sprintf("head -n %d tab.out | tail -n 1", n_iter)
+line = system(com)
+time = word(line,2)
+time = time +0
+timestring = sprintf("%7.2f",time)
+timesdim = timestring
+# timesdim = timestring." s"  # add a unit to the timestring
+set label 1 timesdim at graph 0.98,0.95 right
+
+n_iter = n_iter + inc
+
+if ( n_iter<=limit_iterations ) plot fname  u 1:nvar w l not; pause -1; reread
+
+
+
+
+
+
+

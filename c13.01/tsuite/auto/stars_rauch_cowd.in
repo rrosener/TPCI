@@ -1,0 +1,108 @@
+title Rauch hot PN star
+c
+c commands controlling continuum =========
+table star rauch co wd T = 238000 K
+luminosity 4.5 solar
+constant temperature 20000 // because we only want to test shape
+c
+c commands controlling geometry  =========
+sphere
+radius 18
+stop zone 1
+set dr 0
+c
+c commands for density & abundances =========
+abundances planetary 
+hden 3.0
+c
+c other commands for details     =========
+no level2
+c test adding continuum points
+set nfnu add 10 cm
+set nfnu add 350 micron
+set nfnu add 200 angstrom
+c
+c commands controlling output    =========
+plot continuum range .1
+save performance "stars_rauch_cowd.per"
+save overview last "stars_rauch_cowd.ovr"
+save results last "stars_rauch_cowd.rlt"
+save monitors last "stars_rauch_cowd.asr"
+c
+c commands giving the monitors    =========
+monitor line luminosity "nInu" 10.00c  18.4523
+monitor line luminosity "nInu" 3.400c  19.8592
+monitor line luminosity "nInu" 350.0m  25.8191
+monitor line luminosity "nInu" 122.4m  27.1869
+monitor line luminosity "nInu" 60.83m  28.0988
+monitor line luminosity "nInu" 41.22m  28.6069
+monitor line luminosity "nInu" 30.87m  28.9847
+monitor line luminosity "nInu" 24.78m  29.2713
+monitor line luminosity "nInu" 24.30m  29.2973
+monitor line luminosity "nInu" 22.83m  29.3755
+monitor line luminosity "nInu" 21.42m  29.4601
+monitor line luminosity "nInu" 21.12m  29.4797
+monitor line luminosity "nInu" 19.62m  29.5709
+monitor line luminosity "nInu" 17.65m  29.7142
+monitor line luminosity "nInu" 17.37m  29.7337
+monitor line luminosity "nInu" 15.69m  29.8640
+monitor line luminosity "nInu" 14.60m  29.9552
+monitor line luminosity "nInu" 12.43m  30.1701
+monitor line luminosity "nInu" 11.40m  30.2808
+monitor line luminosity "nInu" 10.46m  30.3916
+monitor line luminosity "nInu" 9.480m  30.5218
+monitor line luminosity "nInu" 9.325m  30.5414
+monitor line luminosity "nInu" 8.210m  30.7107
+monitor line luminosity "nInu" 7.580m  30.8150
+monitor line luminosity "nInu" 7.050m  30.9061
+monitor line luminosity "nInu" 4.114m  31.6096
+monitor line luminosity "nInu" 2.324m  32.3522
+monitor line luminosity "nInu" 1.643m  32.8016
+monitor line luminosity "nInu" 1.480m  32.9384
+monitor line luminosity "nInu" 1.436m  32.9774
+monitor line luminosity "nInu" 1.119m  33.3031
+monitor line luminosity "nInu"  8330A  33.6874
+monitor line luminosity "nInu"  8079A  33.7265
+monitor line luminosity "nInu"  6210A  34.0717
+monitor line luminosity "nInu"  4885A  34.3844
+monitor line luminosity "nInu"  3704A  34.7426
+monitor line luminosity "nInu"  3588A  34.7882
+monitor line luminosity "nInu"  2430A  35.2963
+monitor line luminosity "nInu"  2392A  35.3158
+monitor line luminosity "nInu"  2071A  35.5047
+monitor line luminosity "nInu"  2053A  35.5177
+monitor line luminosity "nInu"  1793A  35.6937
+monitor line luminosity "nInu"  1585A  35.8255
+monitor line luminosity "nInu"  1458A  35.9476
+monitor line luminosity "nInu"  1357A  36.0299
+monitor line luminosity "nInu"  1297A  36.0841
+monitor line luminosity "nInu"  1263A  36.1024
+monitor line luminosity "nInu"  1218A  36.1544
+monitor line luminosity "nInu"  1196A  36.1753
+monitor line luminosity "nInu"  1175A  36.2078
+monitor line luminosity "nInu"  1144A  36.2494
+monitor line luminosity "nInu"  1113A  36.2758
+monitor line luminosity "nInu"  1103A  36.2925
+monitor line luminosity "nInu"  1074A  36.3241
+monitor line luminosity "nInu"  1064A  36.3337
+monitor line luminosity "nInu"  1036A  36.3120
+monitor line luminosity "nInu"  1000A  36.4057
+monitor line luminosity "nInu" 925.1A  36.4948
+monitor line luminosity "nInu" 897.8A  36.5202
+monitor line luminosity "nInu" 760.0A  36.7277
+monitor line luminosity "nInu" 701.5A  36.8260
+monitor line luminosity "nInu" 608.2A  36.9576
+monitor line luminosity "nInu" 575.1A  37.0231
+monitor line luminosity "nInu" 511.9A  37.1630
+monitor line luminosity "nInu" 496.9A  37.1489
+monitor line luminosity "nInu" 399.2A  37.4118
+monitor line luminosity "nInu" 200.0A  37.8472
+// 
+c stars_rauch_cowd.in
+c class stars 
+c ========================================
+
+This is a model of a very hot planetary nebula, and checks that the code
+is able to access the C/O white dwarf version of the Rauch grid of stellar
+atmosphere models.
+

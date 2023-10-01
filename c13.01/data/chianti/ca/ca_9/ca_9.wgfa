@@ -1,0 +1,48 @@
+    1    3        691.206      1.300e-04      6.050e+05                3s2 1S0.0 -               3s.3p 3P1.0
+    1    4        676.079      0.000e+00      4.852e-01                3s2 1S0.0 -               3s.3p 3P2.0
+    1    5        466.240      1.120e+00      1.140e+10                3s2 1S0.0 -               3s.3p 1P1.0
+    2    8        503.282      3.770e-01      3.310e+09              3s.3p 3P0.0 -                 3p2 3P1.0
+    2   10        371.883      4.910e-01      7.890e+09              3s.3p 3P0.0 -               3s.3d 3D1.0
+    2   15        161.980      8.220e-02      6.960e+09              3s.3p 3P0.0 -               3s.4s 3S1.0
+    3    4      30892.859      0.000e+00      4.590e-01              3s.3p 3P1.0 -               3s.3p 3P2.0
+    3    6        522.003      2.020e-02      9.890e+07              3s.3p 3P1.0 -                 3p2 1D2.0
+    3    7        512.065      3.790e-01      9.640e+09              3s.3p 3P1.0 -                 3p2 3P0.0
+    3    8        507.108      2.810e-01      2.430e+09              3s.3p 3P1.0 -                 3p2 3P1.0
+    3    9        498.016      4.560e-01      2.450e+09              3s.3p 3P1.0 -                 3p2 3P2.0
+    3   10        373.968      3.680e-01      5.840e+09              3s.3p 3P1.0 -               3s.3d 3D1.0
+    3   11        373.810      1.100e+00      1.050e+10              3s.3p 3P1.0 -               3s.3d 3D2.0
+    3   13        393.353      4.480e-04      1.930e+07              3s.3p 3P1.0 -                 3p2 1S0.0
+    3   14        309.640      2.930e-04      4.070e+06              3s.3p 3P1.0 -               3s.3d 1D2.0
+    3   15        162.374      2.490e-01      2.100e+10              3s.3p 3P1.0 -               3s.4s 3S1.0
+    3   16        158.780      2.500e-05      6.610e+06              3s.3p 3P1.0 -               3s.4s 1S0.0
+    4    6        530.975      5.290e-02      2.500e+08              3s.3p 3P2.0 -                 3p2 1D2.0
+    4    8        515.571      4.680e-01      3.910e+09              3s.3p 3P2.0 -                 3p2 3P1.0
+    4    9        506.176      1.370e+00      7.150e+09              3s.3p 3P2.0 -                 3p2 3P2.0
+    4   10        378.551      2.450e-02      3.800e+08              3s.3p 3P2.0 -               3s.3d 3D1.0
+    4   11        378.389      3.670e-01      3.420e+09              3s.3p 3P2.0 -               3s.3d 3D2.0
+    4   12        378.083      2.060e+00      1.370e+10              3s.3p 3P2.0 -               3s.3d 3D3.0
+    4   14        312.775      9.020e-05      1.230e+06              3s.3p 3P2.0 -               3s.3d 1D2.0
+    4   15        163.232      4.180e-01      3.490e+10              3s.3p 3P2.0 -               3s.4s 3S1.0
+    5    6        821.269      3.430e-01      6.790e+08              3s.3p 1P1.0 -                 3p2 1D2.0
+    5    7        796.935      3.360e-04      3.530e+06              3s.3p 1P1.0 -                 3p2 3P0.0
+    5    8        784.992      3.660e-05      1.320e+05              3s.3p 1P1.0 -                 3p2 3P1.0
+    5    9        763.418      1.540e-02      3.520e+07              3s.3p 1P1.0 -                 3p2 3P2.0
+    5   10        506.084      5.920e-05      5.140e+05              3s.3p 1P1.0 -               3s.3d 3D1.0
+    5   11        505.795      4.850e-05      2.530e+05              3s.3p 1P1.0 -               3s.3d 3D2.0
+    5   13        542.247      4.340e-01      9.840e+09              3s.3p 1P1.0 -                 3p2 1S0.0
+    5   14        395.025      2.940e+00      2.510e+10              3s.3p 1P1.0 -               3s.3d 1D2.0
+    5   15        183.132      7.680e-05      5.090e+06              3s.3p 1P1.0 -               3s.4s 3S1.0
+    5   16        178.572      1.960e-01      4.100e+10              3s.3p 1P1.0 -               3s.4s 1S0.0
+ -1
+%filename: ca_9.wgfa
+%observed energy levels: Martin, W.C., Sugar, J., Musgrove, A., Dalton, G.R., 1995,
+   NIST Database for Atomic Spectroscopy, Version 1.0, NIST Standard Reference Database 61.
+%oscillator strengths: Christensen, Ph.Rev.A, 4704, 34, 1986
+%A value (3:4): Martin, W.C., Sugar, J., Musgrove, A., Dalton, G.R., 1995,
+   NIST Database for Atomic Spectroscopy, Version 1.0, NIST Standard Reference Database 61.
+%A values (1:4): Calculated using SUPERSTRUCTURE and the same atomic model adopted
+   by Christensen, Norcross, Pradhan, Ph.Rev.A, 34, 4704, 1986
+%produced as part of the Arcetri/Cambridge/NRL 'CHIANTI' atomic data base collaboration
+%
+% E. Landi 2000
+ -1

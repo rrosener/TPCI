@@ -1,0 +1,43 @@
+import astropy.io.fits
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.ndimage import uniform_filter
+from scipy.interpolate import interp1d
+
+PARSEC = 3.086e18
+SEMIMAJOR_AXIS = 0.01544 * 1.5e13
+DIST = 12.6 * PARSEC
+CM_TO_ANGSTROM = 1e8
+SPEED_OF_LIGHT = 3e10
+
+hdul = astropy.io.fits.open("/home/stanley/packages/helium_escape/55cnc_spectrum.fits")
+wavelengths = hdul[1].data["WAVELENGTH"]
+fluxes = hdul[1].data["FLUX"]
+
+interpolator = interp1d(wavelengths, fluxes)
+uniform_wavelengths = np.arange(round(np.min(wavelengths)),
+                                round(np.max(wavelengths)), 1)
+uniform_fluxes = np.zeros(len(uniform_wavelengths))
+for i, w in enumerate(uniform_wavelengths):
+    cond = np.logical_and(wavelengths > w - 0.5, wavelengths < w + 0.5)
+    print("Number: ", w, np.sum(cond))
+    if np.sum(cond) == 0:
+        uniform_fluxes[i] = interpolator(w)
+    else:
+        uniform_fluxes[i] = np.sum(fluxes[cond])
+        
+#plt.plot(wavelengths, fluxes)
+#plt.plot(wavelengths, uniform_filter(fluxes, 5))
+
+#plt.loglog(wavelengths[1:], np.diff(wavelengths))
+
+uniform_wavelengths /= CM_TO_ANGSTROM
+uniform_fluxes *= CM_TO_ANGSTROM
+
+plt.plot(np.log10(SPEED_OF_LIGHT / uniform_wavelengths),
+         np.log10(uniform_fluxes * (DIST / SEMIMAJOR_AXIS)**2 * uniform_wavelengths**2 / SPEED_OF_LIGHT))
+
+plt.figure()
+
+plt.loglog(uniform_wavelengths * 1e4, uniform_fluxes)
+plt.show()

@@ -1,0 +1,32 @@
+c optimize for 'high-z galaxy'
+table agn
+ionization parameter -5
+extinguish 24
+hden 4.123 vary
+c
+cosmic ray background
+cmb 4
+c
+stop CO column density 18.589 vary
+stop temperature off
+c
+iterate
+c
+normalize to "CO  " 2600m
+set save prefix "optimize_leiden12_hiz"
+save leiden ".lei" last
+save overview ".ovr" last
+save dr ".dr" last
+c optimize intensity -18.883 0.15 
+optimize lines
+CO    2600m	1.000	0.15
+CO    1300m	9.695	0.25
+CO   650.1m	88.550	0.05
+CO   433.4m	261.069	0.10
+CO   325.1m	577.099	0.69
+CO     289m	595.420	0.20
+CO   260.2m	709.924	0.20
+CO   236.5m	682.443	0.20
+CO   216.9m	679.389	0.53
+CO   200.2m	341.221	1.43
+end of lines

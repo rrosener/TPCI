@@ -1,0 +1,166 @@
+title BLR model, density 1e13 cm-3, flux of H-ion phots 1e18 cm2 s-1
+print lines column
+print lines sort intensity 
+atom feii 
+abundances starburst 20 
+c
+c this is a very low ionization cloud
+c the conditions, and some lines, are surprisingly sensitive
+c to the treatment of hydrogen molecules
+c
+table agn
+hden 13
+phi(h) 18
+// >>chng 05 aug 05, col den from 23 to 19 so that it stops at
+// a given column density rather than temp - also include double
+// command since there is more gas beyond where we stop
+stop column density 19
+double 
+iterate convergence limit 15
+//
+// affects appearance of printout
+normalize to "totl" 1216 100 
+print line faint 1  // get rid of lots of faint lines 
+//
+// these are to try to speed things up
+init "c84.ini"
+//
+save performance "feii_blr_n13_p18_Z20.per"
+save monitors "feii_blr_n13_p18_Z20.asr" last
+save feii continuum units microns "feii_blr_n13_p18_Z20.fe2con" last
+save feii lines "feii_blr_n13_p18_Z20.lin" last
+save feii column densities "feii_blr_n13_p18_Z20.fe2col" last
+save feii populations all "feii_blr_n13_p18_Z20.lev" last
+save overview "feii_blr_n13_p18_Z20.ovr" last
+save dr "feii_blr_n13_p18_Z20.dr" last 
+save convergence reason "feii_blr_n13_p18_Z20.cvr" 
+//
+// strong blr lines
+// >>chng 08 mar 17, from 6.366 to 6.343, RP update line overlap
+// >>chng 11 nov 16, from 6.343 to 6.385, adjust newmole monitors
+// >>chng 12 jul 02, from 6.385 to 6.358, change H,H=>H2,hv rate
+monitor line luminosity "totl"  1216 6.358 //total Hydrogen Lyman-alpha 1215.67 
+//
+//total of sum of both Si IV comp
+// >>chng 05 aug 05, from 1.198 to 1.138, NA update chem, chng col den
+// >>chng 09 apr 18, from 1.138 to 1.164, refactor dest esc probs to synch with line cooling routines
+monitor line luminosity "totl"  1397 1.164
+//
+//total He II Balmer-alpha 1640
+// >>chng 05 jul 17, from 4.53 to 4.42, first run in 6 mo
+// >>chng 05 sep 30, from 4.42 to 4.35
+// >>chng 06 aub 06, update O+2 & N+2 CT, from 4.35 to 4.45
+// >>chng 06 nov 29, from 4.45 to 4.50, Badnell DR
+// >>chng 07 aug 09, from 4.50 to 4.39 R1305 update H coll
+monitor line luminosity "he 2"  1640 4.39 error 0.1 
+//
+//total of sum of CIII] 1908.73+
+// >>chng 05 aug 05, from 0.213 to 0.163, NA update chem, chng col den
+// >>chng 06 aub 06, update O+2 & N+2 CT, from 0.163 to 0.186
+// >>chng 07 dec 09, from 0.186 to 0.142 cumulative RP changes in iso seq
+// >>chng 08 mar 17, from 0.142 to 0.091, RP update line overlap
+// >>chng 08 apr 30, from 0.09 to 0.08 H, He topoff change
+// >>chng 09 feb 23, from 0.07 to 0.1187, remove otslin, otscon dampers (PR #84, r2758)
+// >>chng 11 nov 16, from 0.1187 to 0.0512, adjust newmole monitors
+// >>chng 12 mar 07, from 0.0512 to 0.1033, renorm to r5961 results
+// >>chng 12 jul 09, from 0.1033 to 0.2096, get rid of major discontinuities in 3body rates
+monitor line luminosity "totl"  1909 0.2096 err 0.1 
+//
+//total of sum of Si III] 1892+
+// >>chng 05 jul 17, from 2.56 to 2.49, first run in 6 mo
+// >>chng 06 mar 02, from 2.49 to 2.52, NA Fe0, Mg0, <-> Si+, S+, C+ ct,
+// also energy barrier for H + (CH and CH2) reactions
+// >>chng 11 nov 16, from 2.52 to 2.591, adjust newmole monitors
+// >>chng 12 jul 09, from 2.591 to 2.544, get rid of major discontinuities in 3body rates
+monitor line luminosity "totl"  1888 2.544 error 0.1 
+//
+// >>chng 06 nov 29, from 3.132 to 3.080 Badnell DR
+// >>chng 08 mar 17, from 3.080 to 3.052, RP update line overlap
+// >>chng 09 apr 18, from 3.052 to 3.073, refactor dest esc probs to synch with line cooling routines
+// >>chng 11 nov 16, from 3.073 to 3.019, adjust newmole monitors
+// >>chng 12 mar 07, from 3.019 to 3.058, renorm to r5961 results
+// >>chng 12 jul 09, from 3.058 to 3.153, get rid of major discontinuities in 3body rates
+// >>chng 12 nov 01, from 3.153 to 3.199, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1860 3.199  //total sum of both Al III comp
+//
+//total C II] 2324.69 + 2328.12
+// >>chng 05 jul 17, from 3.07 to 3.09, first run in 6 mo
+// >>chng 06 mar 02, from 3.09 to 3.04, NA Fe0, Mg0, <-> Si+, S+, C+ ct,
+// also energy barrier for H + (CH and CH2) reactions, inc err .1 - .15
+// >>chng 08 apr 30, from 3.04 to 2.97 H, He topoff change
+// >>chng 11 jul 12, from 2.97 to 3.015, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 3.015 to 2.968, adjust newmole monitors
+monitor line luminosity "totl"  2326 2.968 error 0.1
+//
+// >>chng 11 dec 18, from 6.554 to 6.534, adjust outstanding botches
+monitor line luminosity "totl"  2798 6.534  //total of sum of both Mg II comp
+monitor line luminosity "Ca 2"  3933 6.713
+//
+// >>chng 05 jul 17, from 6.46 to 6.48, first run in 6 mo
+// >>chng 05 aug 05, from 6.48 to 6.44, NA update chem, chng col den
+// >>chng 06 mar 02, from 6.44 to 6.40, NA Fe0, Mg0, <-> Si+, S+, C+ ct,
+// also energy barrier for H + (CH and CH2) reactions
+// >>chng 08 apr 30, from 6.40 to 6.32 H, He topoff change
+monitor line luminosity "totl"  1.083m 6.32 error 0.1
+//
+// >>chng 09 jun 15, add this monitor
+// >>chng 11 nov 16, from 6.771 to 6.809, adjust newmole monitors
+// >>chng 12 mar 07, from 6.809 to 6.78, renorm to r5961 results
+monitor line luminosity "Fe2C" 0 6.78
+//
+// >>chng 09 jun 15, add this monitor
+// >>chng 11 nov 16, from 6.62 to 6.649, adjust newmole monitors
+// >>chng 12 mar 07, from 6.649 to 6.628, renorm to r5961 results
+monitor line luminosity "Fe2b" 2445 6.628
+//
+// >>chng 09 jun 15, add this monitor
+// >>chng 11 jul 12, from 4.386 to 4.408, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 4.408 to 4.47, adjust newmole monitors
+// >>chng 11 nov 28, from 4.47 to 4.439, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 12 mar 07, from 4.439 to 4.399, renorm to r5961 results
+// >>chng 12 oct 09, from 4.399 to 4.36, fix CRD esc prob
+// >>chng 12 oct 17, from 4.36 to 4.386, Improved CRD esc prob
+monitor line luminosity "Fe2b" 4558 4.386
+//
+// >>chng 08 aug 02, from <12 to <18 changes over past month
+// >>chng 08 dec 08, from 18 to 8.012, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 8.012 to 14.76, merging newsolvers branch
+// >>chng 09 jan 16, from 14.76 to 14.79 (error 0.09), average of 9 runs
+// >>chng 09 feb 10, from 14.79 to 19.26, combined effect of r2655, r2669
+// >>chng 09 may 30, from 19.3 to 18.9, drift down
+// >>chng 09 may 30, from 18.9 to 17.8, mean 2 cloud9, mac
+// >>chng 11 nov 16, from 17.8 to 22.46, adjust newmole monitors
+// >>chng 12 mar 07, from 22.46 to 14.65, renorm to r5961 results
+// >>chng 12 mar 10, from 14.65 to 16.8, adjust several performance monitors
+// >>chng 12 may 22, from 16.8 to 15.1, bugfix r6155
+// >>chng 12 jun 07, from 15.1 to 16.9, changes to r6246
+// >>chng 12 jul 01, from 16.9 to 15.16, update Badnell DR to 13-electron iso sequence
+// >>chng 12 jul 02, from 15.16 to 12.78, change H,H=>H2,hv rate
+// >>chng 12 aug 16, from 12.78 to 14.37, fix radasc bug from r6346
+// >>chng 12 oct 09, from 14.37 to 15.55, fix CRD esc prob
+monitor itrzn 15.55 error 0.09
+//
+// >>chng 05 sep 30, from <10 to <5
+// >>chng 08 dec 08, from 5 to 4, upper limit -> equals (r2515)
+monitor niter 4 error 0.01
+//
+// >>chng 08 apr 30, from <200 to 164 H, He topoff change
+// >>chng 08 aug 02, from 164 to 187 changes over past month
+// >>chng 08 nov 04, from 187 to 167, line RT bug fixes (r2429-35)
+// >>chng 08 nov 08, from 167 to 176, fix VS80 elec impact coll. str. (r2444)
+// >>chng 08 dec 08, from 176 to 167, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 167 to 183, merging newsolvers branch
+// >>chng 09 feb 10, from 183 to 168, combined effect of r2655, r2669
+// >>chng 09 feb 23, from 168 to 171, remove otslin, otscon dampers (PR #84, r2758)
+// >>chng 09 apr 18, from 171 to 169, refacto P esc and dest to sync with cooling routines
+// >>chng 09 may 30, from 169 to 163, drift down
+// >>chng 09 jun 11, from 163 to 183, better approach to outer edge of bounded model
+// >>chng 10 mar 14, from 183 to 174, update As to NIST recommended values
+// >>chng 12 mar 10, from 174 to 214, adjust several performance monitors
+// >>chng 12 apr 02, from 214 to 177, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 jul 02, from 177 to 260, change H,H=>H2,hv rate
+// >>chng 12 aug 16, from 260 to 222, fix radasc bug from r6346
+// >>chng 12 aug 16, from 222 to 176, further fix of Rawlings H2 rates
+monitor nzone 176
+
+This is one of the 5 models that sample the LOC plane.

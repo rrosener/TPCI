@@ -1,0 +1,114 @@
+title Orion nebula blister with wind
+c
+c commands controlling continuum =========
+blackbody 40000
+phi(h) 13.0
+brems 6
+phi(h) 10
+cosmic rays background 
+c
+c commands for density & abundances =========
+#hden 4
+dlaw table depth linear
+0         1.0e4
+8.4e15    1.17e4
+5.e16     1.22e4
+1.5e17    1.25e4
+2.5e17    1.27e4
+3.0e17    1.30e4
+3.5e17    1.38e4
+3.54e17   1.50e4
+3.68e17   1.60e4
+3.77e17   1.88e4
+3.80e17   2.28e4
+3.81e17   8.99e4
+4.5e17    9.38e4
+6.0e17    9.50e4
+1.0e18    9.518e4
+2.0e18    9.52e4
+1.0e19    9.52e4
+end of dlaw
+elements limit off -1
+c
+c commands controlling geometry  =========
+#wind -7 km/s advection
+c
+wind advection table depth linear
+0        -7.0e5
+4.26e15  -6.09e5
+2.22e16  -5.81e5
+1.0e17   -5.63e5
+2.0e17   -5.58e5
+3.0e17   -5.40e5
+3.51e17  -5.07e5
+3.53e17  -4.69e5
+3.60e17  -4.56e5
+3.70e17  -4.27e5
+3.75e17  -4.00e5
+3.77e17  -3.70e5
+3.79e17  -3.18e5
+3.80e17  -7.78e4
+5.0e17   -7.39e4
+6.2e17   -7.36e4
+2.e18    -7.35e4
+1.e19    -7.35e4
+end of velocity table
+c
+double optical depths
+sphere 
+c
+c stopping criteria   =========
+stop AV 4 
+stop temperature linear 5000
+stop column density 23.3
+c
+c other commands for details     =========
+iterate 4
+turbulence 8 km/sec no pressure
+init "fast.ini"
+c
+c commands controlling output    =========
+set save prefix "dyn_orionflow_chng_tab."
+set save hash ""
+save overview "ovr"
+save monitors last "asr"
+save pressure "pre" last
+save cooling "cool" last
+save wind "wnd" last 
+c
+c commands giving the monitors    =========
+//
+monitor line "totl" 4861 intensity 0.4796
+monitor line "CaBo" 4861 1.0
+// 
+monitor line "He 1" 5876 0.1388
+monitor line "Ca B" 5876 0.2326
+// 
+monitor line "He 1" 3889 0.1279
+monitor line "Ca B" 3889 0.1099
+// 
+monitor line "He 1" 7065 0.0740
+monitor line "Ca B" 7065 0.0917
+//
+monitor line "totl" 10830 1.8978
+//
+// some dynamic stuff
+monitor velocity -0.7350
+//
+// assert dynamics convergence error < xx 
+monitor itrzn 80.0 error 0.05
+//
+monitor nzone 430
+//
+c dynamics_orion_flow.in
+c class dynamics hii pdr
+c ========================================
+c 
+
+This is a model similar in spirit to the blister geometry H+ region
+model computed by Baldwin et al. (1991), but with a D-critical flow.
+Many physical processes have been disabled to make this simulationn faster.
+Grain physics is not done so the gas temperature is incorrect.  The
+main purpose is to do a quick test of the dynamical flow with grain
+opacities included.  The slow directory contains a full simulation
+of a flow like Orion.

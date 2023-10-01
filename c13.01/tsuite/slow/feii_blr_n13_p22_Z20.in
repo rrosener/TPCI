@@ -1,0 +1,253 @@
+title FeII model 
+table agn
+print lines column
+print lines sort intensity 
+atom feii 
+abundances starburst 20 
+hden 13
+phi(h) 22
+stop column density 23
+iterate convergence 
+//
+// affects appearance of printout
+normalize to "totl" 1216 100 
+print line faint 1  // get rid of lots of faint lines 
+//
+// these are to try to speed things up
+init "c84.ini"
+//
+save performance "feii_blr_n13_p22_Z20.per"
+save monitors "feii_blr_n13_p22_Z20.asr" last
+save convergence reason "feii_blr_n13_p22_Z20.cvr"
+save feii continuum units microns "feii_blr_n13_p22_Z20.fe2con" last
+save feii lines "feii_blr_n13_p22_Z20.lin" last
+save feii column densities "feii_blr_n13_p22_Z20.fe2col" last
+save feii populations all "feii_blr_n13_p22_Z20.lev" last
+save overview "feii_blr_n13_p22_Z20.ovr" last
+save dr "feii_blr_n13_p22_Z20.dr"
+save heating "feii_blr_n13_p22_Z20.het"
+save cooling "feii_blr_n13_p22_Z20.col"
+//
+// strong blr lines
+// >>chng 06 aug 09, from 9.122 to 9.148 Meudon 06, Bowen change
+// >>chng 06 nov 29, from 9.148 to 9.048, Badnell DR
+// >>chng 11 jul 12, from 9.048 to 9.118, enable fit to Badnell DR suppression
+// >>chng 12 nov 01, from 9.118 to 9.202, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1035 9.202  //total of sum of both O VI comp
+//
+// >>chng 06 aug 09, from 9.296 to 9.330 Meudon 06, Bowen change
+// >>chng 07 dec 09, from 9.330 to 9.264, cumulative RP changes in iso seq
+// >>chng 08 mar 17, from 9.264 to 9.242, RP update line overlap
+// >>chng 08 aug 10, from 9.242 to 9.223, drift down
+// >>chng 10 aug 23, from 9.223 to 9.245, first run since change continuum grid
+// >>chng 11 jul 12, from 9.245 to 9.311, enable fit to Badnell DR suppression
+// >>chng 11 aug 06, from 9.311 to 9.282, effects of yesterday's changes, mostly r5341
+// >>chng 11 nov 16, from 9.282 to 9.447, adjust newmole monitors
+// >>chng 11 nov 28, from 9.447 to 9.404, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 18, from 9.404 to 9.379, adjust outstanding botches
+// >>chng 12 mar 07, from 9.379 to 9.268, renorm to r5961 results
+// >>chng 12 oct 13, from 9.268 to 9.238, Badnell revise DR collisional suppression fit
+monitor line luminosity "totl"  1216 9.238  //total Hydrogen Lyman-alpha 1215.67 
+//
+// >>chng 06 nov 29, from 9.717 to 9.693, Badnell DR
+// >>chng 08 dec 13, from 9.693 to 9.67, merging newsolvers branch
+// >>chng 09 jun 11, from 9.67 to 9.749, better approach to outer edge of bounded model
+// >>chng 11 jul 12, from 9.749 to 9.815, enable fit to Badnell DR suppression
+// >>chng 11 aug 06, from 9.815 to 9.765, effects of yesterday's changes, mostly r5341
+// >>chng 11 nov 16, from 9.765 to 9.804, adjust newmole monitors
+// >>chng 12 mar 07, from 9.804 to 9.761, renorm to r5961 results
+// >>chng 12 jul 09, from 9.761 to 9.847, get rid of major discontinuities in 3body rates
+// >>chng 12 aug 16, from 9.847 to 9.803, fix radasc bug from r6346
+// >>chng 12 aug 21, from 9.803 to 9.848, fix CRPHOT botches and HD crash
+// >>chng 12 aug 24, from 9.848 to 9.803, BUGFIX r6603 DR rates not updated in const temp sim
+// >>chng 12 oct 09, from 9.803 to 9.85, fix CRD esc prob
+// >>chng 12 oct 13, from 9.85 to 9.796, Badnell revise DR collisional suppression fit
+// >>chng 12 oct 17, from 9.796 to 9.843, Improved CRD esc prob
+// >>chng 12 oct 19, from 9.843 to 9.796, update collisional suppression DR
+// >>chng 12 oct 22, from 9.796 to 9.823, zone tau in rt_line_one
+// >>chng 12 nov 01, from 9.823 to 9.761, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1240 9.761  //total of sum of both N V comp
+// 
+// >>chng 06 nov 29, from 9.877 to 9.850, Badnell DR
+// >>chng 11 jul 12, from 9.85 to 9.883, enable fit to Badnell DR suppression
+// >>chng 11 aug 06, from 9.883 to 9.857, effects of yesterday's changes, mostly r5341
+// >>chng 11 nov 16, from 9.857 to 9.999, adjust newmole monitors
+// >>chng 11 nov 28, from 9.999 to 9.959, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 18, from 9.959 to 9.921, adjust outstanding botches
+// >>chng 12 mar 07, from 9.921 to 9.858, renorm to r5961 results
+// >>chng 12 jul 01, from 9.858 to 9.88, update Badnell DR to 13-electron iso sequence
+// >>chng 12 oct 17, from 9.88 to 9.845, Improved CRD esc prob
+// >>chng 12 oct 22, from 9.845 to 9.825, zone tau in rt_line_one
+monitor line luminosity "totl"  1397 9.825  //total of sum of both Si IV comp
+// 
+// >>chng 06 nov 29, from 8.662 to 8.714, Badnell DR
+// >>chng 08 mar 17, from 8.714 to 8.656, RP update line overlap
+// >>chng 09 feb 23, from 8.656 to 8.68, remove otslin, otscon dampers (PR #84, r2758)
+// >>chng 11 jul 12, from 8.68 to 8.781, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 8.781 to 8.968, adjust newmole monitors
+// >>chng 11 nov 28, from 8.968 to 8.901, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 12 mar 07, from 8.901 to 8.763, renorm to r5961 results
+// >>chng 12 oct 22, from 8.763 to 8.736, zone tau in rt_line_one
+// >>chng 12 nov 01, from 8.736 to 8.76, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1402 8.76  //total O IV] 1402 
+// 
+// >>chng 07 jan 20, from 9.763 to 9.740, e2 bug
+// >>chng 08 mar 17, from 9.740 to 9.704, RP update line overlap
+// >>chng 09 jun 11, from 9.704 to 9.76, better approach to outer edge of bounded model
+// >>chng 11 jul 12, from 9.76 to 9.79, enable fit to Badnell DR suppression
+// >>chng 11 aug 06, from 9.79 to 9.829, effects of yesterday's changes, mostly r5341
+// >>chng 11 nov 16, from 9.829 to 9.865, adjust newmole monitors
+// >>chng 11 nov 28, from 9.865 to 9.992, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 18, from 9.992 to 9.783, adjust outstanding botches
+// >>chng 12 mar 07, from 9.783 to 9.805, renorm to r5961 results
+// >>chng 12 apr 02, from 9.805 to 9.839, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 apr 18, from 9.839 to 9.787, stout merge
+// >>chng 12 jun 07, from 9.787 to 9.821, changes to r6246
+// >>chng 12 oct 13, from 9.821 to 9.8, Badnell revise DR collisional suppression fit
+// >>chng 12 oct 17, from 9.8 to 9.819, Improved CRD esc prob
+// >>chng 12 oct 19, from 9.819 to 9.792, update collisional suppression DR
+// >>chng 12 dec 14, from 9.792 to 9.811, CX to ground state + convergence tweaks
+// >>chng 13 jan 14, from 9.811 to 9.782, Pelec_esc improvements
+// >>chng 13 feb 02, from 9.782 to 9.806, BUGFIX, largely undo r6703
+// >>chng 13 feb 02, from 9.806 to 9.792, mean icc gcc nephos
+monitor line luminosity "totl"  1549 9.792  //total of sum of both C IV comp
+// 
+//total He II Balmer-alpha 1640
+// >>chng 06 jul 24, from 9.155 to 9.275, RP update H-like collision rates
+// >>chng 07 dec 09, from 9.275 to 9.387, cumulative RP changes in iso seq
+// >>chng 07 dec 31, from 9.387 to 9.361 RP changes??
+// >>chng 08 mar 17, from 9.361 to 9.248, RP update line overlap
+// >>chng 08 oct 18, from 9.248 to 9.226, include Badnell UTA data
+// >>chng 11 oct 04, from 9.226 to 9.204, Chianti for line-less ions of P and heavier elements
+// >>chng 11 nov 16, from 9.204 to 9.843, adjust newmole monitors
+// >>chng 11 nov 28, from 9.843 to 9.921, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 18, from 9.921 to 9.653, adjust outstanding botches
+// >>chng 12 mar 07, from 9.653 to 9.218, renorm to r5961 results
+// >>chng 12 apr 02, from 9.218 to 9.241, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 apr 18, from 9.241 to 9.264, stout merge
+// >>chng 12 jul 02, from 9.264 to 9.243, change H,H=>H2,hv rate
+// >>chng 12 aug 16, from 9.243 to 9.266, fix radasc bug from r6346
+// >>chng 12 aug 16, from 9.266 to 9.246, further fix of Rawlings H2 rates
+// >>chng 12 oct 09, from 9.246 to 9.314, fix CRD esc prob
+// >>chng 12 oct 17, from 9.314 to 9.261, Improved CRD esc prob
+// >>chng 12 nov 20, from 9.261 to 9.282, g-bar for forbidden dbase lines, see r6868, ticket #248
+// >>chng 13 feb 02, from 9.282 to 9.258, BUGFIX, largely undo r6703
+// >>chng 13 feb 16, from 9.258 to 9.286, port from trunk
+monitor line luminosity "he 2"  1640 9.286  
+// 
+// >>chng 07 dec 09, from 8.903 to 8.878, cumulative RP changes in iso seq
+// >>chng 08 mar 17, from 8.878 to 8.707, RP update line overlap
+// >>chng 11 jul 12, from 8.707 to 8.79, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 8.79 to 9.028, adjust newmole monitors
+// >>chng 11 nov 28, from 9.028 to 8.972, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 12 mar 07, from 8.972 to 8.784, renorm to r5961 results
+// >>chng 12 oct 22, from 8.784 to 8.713, zone tau in rt_line_one
+monitor line luminosity "o  3"  1666 8.713  //total O III] 1666
+// 
+// >>chng 08 mar 17, from 8.493 to 8.210, RP update line overlap
+// >>chng 09 feb 23, from 8.21 to 8.242, remove otslin, otscon dampers (PR #84, r2758)
+// >>chng 11 jul 12, from 8.242 to 8.319, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 8.319 to 8.494, adjust newmole monitors
+// >>chng 11 nov 28, from 8.494 to 8.438, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 12 mar 07, from 8.438 to 8.316, renorm to r5961 results
+// >>chng 12 oct 22, from 8.316 to 8.245, zone tau in rt_line_one
+monitor line luminosity "totl"  1909 8.245  //total of sum of CIII] 1908.73+
+// 
+// >>chng 06 nov 29, from 9.207 to 9.246, Badnell DR
+// >>chng 11 jul 12, from 9.246 to 9.225, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 9.225 to 9.305, adjust newmole monitors
+// >>chng 12 mar 07, from 9.305 to 9.229, renorm to r5961 results
+// >>chng 12 oct 22, from 9.229 to 9.187, zone tau in rt_line_one
+monitor line luminosity "totl"  1888 9.187  //total of sum of Si III] 1892+
+// 
+// >>chng 07 dec 09, from 9.586 to 9.563, cumulative RP changes in iso seq
+// >>chng 11 jul 15, from 9.563 to 9.58 mean icc gcc cloud9
+// >>chng 11 nov 16, from 9.58 to 9.686, adjust newmole monitors
+// >>chng 11 nov 28, from 9.686 to 9.664, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 12 mar 07, from 9.664 to 9.582, renorm to r5961 results
+// >>chng 12 oct 22, from 9.582 to 9.535, zone tau in rt_line_one
+monitor line luminosity "totl"  1860 9.535 //total sum of both Al III comp
+//
+//total C II] 2324.69 + 2328.12
+// >>chng 05 jul 17, from 8.33 to 8.36, first run in 6 mo
+// >>chng 07 dec 09, from 8.36 to 8.31 cumulative RP changes in iso seq
+// >>chng 08 mar 17, from 8.31 to 8.24 RP update line overlap
+// >>chng 08 mar 22, from 8.24 to 8.28 bugfix r1879
+// >>chng 11 jul 12, from 8.28 to 8.329, enable fit to Badnell DR suppression
+// >>chng 12 oct 13, from 8.329 to 8.273, Badnell revise DR collisional suppression fit
+// >>chng 12 oct 22, from 8.273 to 8.182, zone tau in rt_line_one
+monitor line luminosity "totl"  2326 8.182 error 0.1  
+//
+// >>chng 09 oct 06, from 9.392 to 9.371, [NI] pumping changes
+// >>chng 11 aug 06, from 9.371 to 9.394, effects of yesterday's changes, mostly r5341
+// >>chng 12 oct 22, from 9.394 to 9.362, zone tau in rt_line_one
+monitor line luminosity "totl"  2798 9.362  //total of sum of both Mg II comp
+//
+// >>chng 09 jun 15, add this monitor, FeII cooling
+// >>chng 09 oct 05, from 10.46 to 10.44, [NI] pumping changes
+// >>chng 11 jul 12, from 10.44 to 10.35, enable fit to Badnell DR suppression
+// >>chng 12 oct 17, from 10.35 to 10.37, Improved CRD esc prob
+monitor line luminosity "Fe2c" 0 10.37
+//
+// >>chng 09 jun 15, add this monitor
+// >>chng 09 jun 16, from 1 to 10.33, add FeII bands
+// >>chng 11 jul 12, from 10.33 to 10.27, enable fit to Badnell DR suppression
+// >>chng 12 oct 17, from 10.27 to 10.31, Improved CRD esc prob
+// >>chng 12 oct 22, from 10.31 to 10.24, zone tau in rt_line_one
+monitor line luminosity "Fe2b" 2445 10.24
+//
+// >>chng 09 jun 15, add this monitor
+// >>chng 09 jun 16, from 1 to 8.696, add FeII bands
+// >>chng 11 jul 12, from 8.696 to 8.665, enable fit to Badnell DR suppression
+// >>chng 12 oct 17, from 8.665 to 8.636, Improved CRD esc prob
+// >>chng 12 oct 22, from 8.636 to 8.562, zone tau in rt_line_one
+monitor line luminosity "Fe2b" 4558 8.562
+//
+// >>chng 08 dec 08, from 9 to 6.583, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 6.583 to 16.86, merging newsolvers branch
+// >>chng 09 jan 16, from 16.86 to 16.89 (error 0.06), average of 9 runs
+// >>chng 09 feb 10, from 16.89 to 21.15, combined effect of r2655, r2669
+// >>chng 09 jul 06, from 21.15 to 22.56, botches resulting from r3095
+// >>chng 09 aug 01, from 22.56 to 20.45, do not check on outward Hb, autocv back to old default
+// >>chng 09 oct 12, from 20.45 to 22.19, extend fine continuum to lower limit of code by default
+// >>chng 09 oct 26, from 22.19 to 20.76, icc on bcx
+// >>chng 09 nov 17, from 20.76 to 23.66, N I changes (r3588)
+// >>chng 09 nov 18, from 23.66 to 21.37, Fe XVII update (r3604)
+// >>chng 09 dec 28, from 21.37 to 21.08, mean cloud9, mac
+// >>chng 11 jun 14, from 21.08 to 18.92, new Te solver
+// >>chng 11 oct 04, from 18.92 to 20.15, Chianti for line-less ions of P and heavier elements
+// >>chng 11 nov 16, from 20.15 to 18.08, adjust newmole monitors
+// >>chng 11 nov 28, from 18.08 to 20.5, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 12 mar 07, from 20.5 to 23.8, renorm to r5961 results
+// >>chng 12 mar 10, from 23.8 to 16.73, adjust several performance monitors
+// >>chng 12 apr 02, from 16.73 to 18.55, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 may 22, from 18.55 to 14.66, bugfix r6155
+monitor itrzn 14.66 error 0.07
+//
+// >>chng 08 dec 08, from 4 to 3, upper limit -> equals (r2515)
+// >>chng 09 jun 11, from 3 to 5, better approach to outer edge of bounded model
+// >>chng 09 oct 12, from 5 to 4, extend fine continuum to lower limit of code by default
+// >>chng 09 oct 21, from 4 to 5, gcc 3.3.3 on bcx
+// >>chng 11 jul 15, from 5 to 5 or 6 mean icc gcc cloud9
+// >>chng 11 aug 06, from 4 to 3, effects of yesterday's changes, mostly r5341
+// >>chng 11 nov 16, from 3 to 2, adjust newmole monitors
+monitor niter >2 error 0.01
+monitor niter <7 error 0.01
+//
+// >>chng 05 oct 07, from 500 to 550, ? ?
+// >>chng 08 dec 08, from 550 to 516, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 516 to 502, merging newsolvers branch
+// >>chng 09 jan 16, from 502 to 500, average of 9 runs
+// >>chng 09 apr 18, from 500 to 506, refacto P esc and dest to sync with cooling routines
+// >>chng 09 jun 11, from 506 to 538, better approach to outer edge of bounded model
+// >>chng 09 aug 01, from 538 to 517, do not check on outward Hb, autocv back to old default
+// >>chng 09 nov 17, from 517 to 545, N I changes (r3588)
+// >>chng 09 dec 28, from 545 to 521, mean 2 cloud9, mac
+// >>chng 11 jul 12, from 521 to 557, enable fit to Badnell DR suppression
+// >>chng 11 nov 16, from 557 to 501, adjust newmole monitors
+// >>chng 12 mar 07, from 501 to 559, renorm to r5961 results
+// >>chng 12 mar 10, from 559 to 598, adjust several performance monitors
+// >>chng 12 apr 02, from 598 to 550, Chianti 7 change, gcc 4.4.6 wolkje
+monitor nzone 550 
+
+This is one of the 5 models that sample the LOC plane.

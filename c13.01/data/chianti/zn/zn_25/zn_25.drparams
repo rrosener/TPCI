@@ -1,0 +1,13 @@
+    1
+   30   25  9.8210e+03  6.2500e+04  2.9490e+05  1.1580e+06  4.9800e+06  1.3260e+07  3.2590e+08  0.0000e+00
+   30   25  2.7900e-03  2.9290e-02  4.5060e-02  8.7890e-02  3.6050e-01  1.8600e+00  1.1090e-02  0.0000e+00
+-1
+%file:  zn_25.rrparams
+%parameters for dielectronic recombination rate coefficients
+Determined from the coefficients listed at:
+   http://amdpp.phys.strath.ac.uk/tamoc/DATA/RR/
+These calculations have been performed by a collaboration of researchers at:
+    Auburn University, Rollins College, and the University of Strathclyde.
+ produced for the CHIANTI atomic database for astrophysical spectroscopy
+ created by Ken Dere (GMU):  Fri Feb  1 15:06:56 2008
+-1

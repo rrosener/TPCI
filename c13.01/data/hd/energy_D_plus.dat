@@ -1,0 +1,56 @@
+2 4 29 // magic number - today's date
+#
+#   VizieR Astronomical Server: vizier.cfa.harvard.edu	2011-03-20T21:00:28
+#   (replaces the 'Astrores' format originally described at
+#    http://vizier.u-strasbg.fr/doc/astrores.htx)
+#   In case of problem, please report to:	question@simbad.u-strasbg.fr
+#
+#Coosys	J2000:	eq_FK5 J2000
+#INFO	-ref=VIZ4d8665d24a89	
+#INFO	-out.max=unlimited	
+#RESOURCE=yCat_34450361
+#Name: J/A+A/445/361
+#Title: Transition probabilities in the HD molecule (Abgrall+, 2006)
+#Table	J_A_A_445_361_levels:
+#Name: J/A+A/445/361/levels
+#Title: Levels of the electronic states of the HD molecule {\em(tables 5 to 10 of paper)}
+#Column	v	(I2)	Vibrational quantum number	[ucd=phys.atmol.qn;phys.mol.vibration]
+#Column	J	(I2)	Rotational quantum number	[ucd=phys.atmol.qn;phys.mol.rotation]
+#Column	E(v,J)	(F10.2)	Term value of the state ({\em state}, {\bf v},{\bf J})	[ucd=phys.energy;phys.atmol.level]
+#Column	At	(D10.3)	Total emission probability towards X	[ucd=phys.atmol.transProb]
+#Column	Ac	(D10.3)	Total dissociation probability towards the continuum of X	[ucd=phys.atmol.transProb]
+#
+#v	J	E(v,J)	At	Ac
+#		cm-1	s-1	s-1
+#
+#D+				
+0	1	113066.22	3.56E+008	9.68E-001
+0	2	113158.31	3.56E+008	2.16E+001
+0	3	113295.46	3.55E+008	9.62E-001
+0	4	113476.54	3.54E+008	5.42E-001
+0	5	113700.13	3.53E+008	2.05E+000
+0	6	113964.51	3.52E+008	7.74E+000
+0	7	114267.68	3.49E+008	8.03E-001
+0	8	114607.22	3.46E+008	1.21E+001
+0	9	114979.92	3.40E+008	5.75E+001
+0	10	115380.35	3.29E+008	3.10E+002
+1	1	115006.28	3.50E+008	1.69E+000
+1	2	115090.88	3.47E+008	4.27E+000
+1	3	115215.75	3.42E+008	1.40E+001
+1	4	115377.55	3.30E+008	1.42E+001
+1	5	115569.77	3.06E+008	6.73E+000
+1	6	115938.66	2.90E+008	5.25E+001
+1	7	116208.91	3.14E+008	6.41E+000
+1	8	116523.24	3.26E+008	2.63E+001
+1	9	116875.45	3.30E+008	3.17E+001
+1	10	117260.91	3.30E+008	2.96E+001
+2	1	116852.19	3.45E+008	1.93E+004
+2	2	116936.81	3.43E+008	2.64E+002
+2	3	117062.2	3.41E+008	1.21E+002
+2	4	117226.78	3.38E+008	2.04E+001
+2	5	117428.55	3.35E+008	7.77E+001
+2	6	117664.63	3.28E+008	9.35E+001
+2	7	117929.06	3.10E+008	6.29E+002
+2	8	118201.45	2.47E+008	9.36E+004
+3	1	118600.02	3.45E+008	2.12E+007
+

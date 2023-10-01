@@ -1,0 +1,12 @@
+USER           = stanley
+WORKING_DIR    = /home/stanley/packages/TPCI/PLUTO/Test_Problems/HD/Stratified_Atmosphere
+SYSTEM_NAME    = Linux
+NODE_NAME      = stanley-printer
+RELEASE        = 5.3.0-51-generic
+ARCH           = x86_64
+BYTE_ORDER     = little
+VERSION        = #44~18.04.2-Ubuntu SMP Thu Apr 23 14:27:18 UTC 2020
+PLUTO_DIR      = /home/stanley/packages/TPCI/PLUTO/
+PLUTO_VERSION  = "4.0"
+C_COMPILER     = gcc
+MPI_C_COMPILER = mpicc

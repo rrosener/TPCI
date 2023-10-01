@@ -1,0 +1,23 @@
+11 10 14
+A	1	2	1.60E-04
+A	1	4	5.40E-03
+A	1	5	3.40E-02
+A	1	6	1.20E-02
+A	1	7	1.11E-03
+A	2	3	2.50E-04
+A	2	4	1.00E-02
+A	2	6	2.10E-02
+A	2	7	6.87E-03
+A	3	4	4.20E-05
+A	3	7	2.30E-02
+A	4	6	1.20E-03
+A	4	7	2.50E-03
+A	6	7	1.50E-05
+**********
+#
+#
+#
+# References
+# Ralchenko, Yu., Kramida, A.E., Reader, J., and NIST ASD Team (2011).
+# NIST Atomic Spectra Database (ver. 4.1.0), [Online]. Available: http://physics.nist.gov/asd [2012, May 1].
+# National Institute of Standards and Technology, Gaithersburg, MD.

@@ -1,0 +1,4 @@
+for line in open("earth_spec.ini"):
+    if line[0] == "#": continue
+    elements = line.split()
+    print(elements)

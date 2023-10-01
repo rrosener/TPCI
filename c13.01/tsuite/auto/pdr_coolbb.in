@@ -1,0 +1,88 @@
+title illumination by cool STE blackbody
+c gasis fully molecular, grains should be in STE
+c
+c commands controlling continuum =========
+c illuminate with 120 blackbody in thermodynamic equilibrium
+blackbody 120 STE
+CMB  
+c 
+c commands for density & abundances =========
+c density
+hden 7
+c ism dust and grains
+abundances ISM no grains
+c dust to gas ratio is 10x standard
+grains 1.0
+c lowers metals and grains to 1/10 standard, so metals are
+c 1/10 solar while dust to gas ratio is galactic
+metals and grains 0.1
+c
+c other commands for details     =========
+c CO heating sets dr on second iteration, need many zones
+set nend 1600
+c set background cosmic rays to allow chemistry 
+cosmic ray background 
+iterate
+c
+c commands controlling geometry  =========
+radius 17.5
+sphere
+stop temperature 20K linear 
+stop column density 25.5
+c
+c commands controlling output    =========
+save performance "pdr_coolbb.per"
+save overview "pdr_coolbb.ovr"
+save monitors "pdr_coolbb.asr" last
+save molecules "pdr_coolbb.mol"
+save heating "pdr_coolbb.het"
+save cooling "pdr_coolbb.col"
+save dr "pdr_coolbb.dr"
+save grain temperature "pdr_coolbb.grntem"
+c
+c commands giving the monitors    =========
+// >>chng 12 jun 07, from 59.1 to 56.42, vib_evap fix
+monitor temperature hydrogen 1 56.42
+monitor H2 column density 25.20 
+monitor CO column density 20.89 error 0.1 
+//
+// >>chng 08 feb 20, from -1.123 to -1.475, grain charge transfer changes in ion_solver and iso*
+// >>chng 08 jun 25, from -1.475 to -1.43 add source/sink to ioniz ladder
+// >>chng 11 nov 16, from -1.43 to -1.255, adjust newmole monitors
+// >>chng 12 apr 09, from -1.255 to -0.5646, update CR backbround to Indriolo+07, ~8x larger
+// >>chng 12 jun 07, from -0.5646 to -0.6186, vib_evap fix
+// >>chng 12 jul 17, from -0.6186 to -0.5746, minor changes due to r6414
+// >>chng 12 aug 16, from -0.5746 to -0.6182, fix radasc bug from r6346
+// >>chng 12 aug 16, from -0.6182 to -0.5722, further fix of Rawlings H2 rates
+// >>chng 12 oct 26, from -0.5722 to -0.6358, adjust montiors to this branch
+// >>chng 12 nov 01, from -0.6358 to -0.5872, Chianti experimental levels, revised Badnell DR suppression
+monitor eden -0.5872 error 0.1
+//
+// >>chng 08 dec 08, from 9 to 4.214, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 4.214 to 9.777, merging newsolvers branch
+// >>chng 09 jan 16, from 9.777 to 9.823 (error 0.03), average of 10 runs
+// >>chng 09 jan 22, from 9.823 to 10.19, some minor botches as a result of r2655
+// >>chng 09 dec 09, from 10.19 to 9.84, array overrun fix
+// >>chng 11 jun 22, from 9.84 to 7.81, tune Te solver
+// >>chng 12 oct 22, from 7.81 to 10.57, zone tau in rt_line_one
+monitor itrzn 10.57
+//
+// >>chng 09 oct 25, add this monitor
+// >>chng 09 dec 09, from 1412 to 385 array overrun fix
+// >>chng 10 mar 02, from 385 to 363, fix botches after CO model switch
+// >>chng 10 jun 25, from 383 to 384 Ryan's species cooling bugfix
+// >>chng 12 jun 07, from 384 to 408, vib_evap fix
+// >>chng 12 oct 22, from 408 to 453, zone tau in rt_line_one
+monitor nzone 453
+c
+c pdr_coolbb.in
+c class pdr 
+c ========================================
+
+This is a dense ISM exposed to a cool blackbody.  This tests the
+ability to converge onto a VERY molecular environment.  Nearly all
+C and H are in CO and H2.  Cosmic rays are the main source of
+heat and ionization.
+
+Continuum pumping of CO followed by collisional deexcitation is a
+major heating agent across the sim.

@@ -1,0 +1,35 @@
+c optimize for 'nearby galaxy'
+table agn
+ionization parameter -5
+extinguish 24
+hden 2.27 vary
+c
+cosmic ray background
+cmb
+c
+stop CO column density 18.808 
+stop temperature off
+c
+iterate
+c
+normalize to "CO  " 2600m
+set save prefix "optimize_leiden12_ng"
+save leiden ".lei" last
+save overview ".ovr" last
+save dr ".dr" last
+c optimize intensity -15.488 0.10
+optimize lines
+CO    2600m	1.000	0.10
+CO    1300m	7.169	0.10
+CO   866.7m	19.354	0.20
+CO   650.1m	44.615	0.30
+CO   520.1m	70.462	0.30
+CO   433.4m	59.692	0.30
+CO   371.5m	74.462	0.30
+CO   325.1m	85.231	0.30
+CO     289m	81.538	0.30
+CO   260.2m	99.385	0.30
+CO   236.5m	46.462	0.30
+CO   216.9m	64.923	0.30
+CO   200.2m	58.769	0.30
+end of lines

@@ -1,0 +1,200 @@
+\form#0:\[ \partial_tq + v\cdot \nabla q = 0 \qquad\Longleftrightarrow\qquad \partial_t(\rho q) + \nabla\cdot(\rho\vec{v}q) = 0 \]
+\form#1:\[ (\rho vq)_{i+\HALF} = \left\{\begin{array}{ll} (\rho v)_{i+\HALF}q_L & \;\textrm{if} \quad (\rho v)_{i+\HALF} \ge 0 \\ \noalign{\medskip} (\rho v)_{i+\HALF}q_R & \; \textrm{otherwise} \end{array}\right. \]
+\form#2:$ (\rho v)_{i+\HALF}$
+\form#3:\[ \left\{\begin{array}{lcl} U^{n+\HALF} &=& U^n + \frac{\Delta t}{2} R^n \\ \noalign{\medskip} U^{n+1} &=& U^n + \Delta t R^{n+\HALF} \end{array}\right. \]
+\form#4:$ \Omega $
+\form#5:$ \partial\Omega $
+\form#6:$ h $
+\form#7:$ (x,y) \in [0, L_x] \otimes [0,L_y]\in R^2 $
+\form#8:$ N_x $
+\form#9:$ N_y $
+\form#10:$ N_x = L_x / h $
+\form#11:$ N_y = L_y / h $
+\form#12:$ N_y$
+\form#13:$ N_x=8 $
+\form#14:$ N_y=8 $
+\form#15:$ [0, L_x] \otimes [0,L_y]$
+\form#16:$ h/2 $
+\form#17:$ N_x \times N_y $
+\form#18:$ (N_x+1) \times N_y$
+\form#19:\[ \Large{ \nabla \phi = \frac{1}{h^2} \big( \phi_{i+1,j} + \phi_{i-1,j} + \phi_{i,j+1} + \phi_{i,j-1} - \phi_{i,j}\big) + O(h^2) \qquad i=1,N_x,\quad j=1,N_y\Large} \]
+\form#20:$ \Gamma $
+\form#21:$ x_1, x_2, x_3 $
+\form#22:$ \vec{V}^n$
+\form#23:$t=t^n$
+\form#24:$ \vec{V}_L $
+\form#25:$ \vec{V}_R $
+\form#26:$ \vec{\cal F} \equiv \vec{\cal F}(\vec{V}_L, \vec{V}_R)$
+\form#27:$\vec{\cal R}$
+\form#28:$ \vec{U}^{n+1} = \vec{U}^n + \vec{\cal R}$
+\form#29:$ \vec{U}^{n+1}\to \vec{V}^{n+1} $
+\form#30:\[ \vec{U}^{n+1}_{ijk} - \vec{U}^n_{ijk} = \vec{\cal R}_{\{x_1\},i,j,k}^n + \vec{\cal R}_{\{x_2\},i,j,k}^n + \vec{\cal R}_{\{x_3\},i,j,k}^n \]
+\form#31:$ x_1 $
+\form#32:\[ \vec{\cal R}_{\{x_1\},i,j,k} = -\frac{\Delta t}{\dvol_i} \left( {\cal A}_{i+\HALF}\vec{\cal F}_{i+\HALF} - {\cal A}_{i-\HALF}\vec{\cal F}_{i-\HALF}\right) + \Delta t\left(\vec{\cal S}^{geo}_i + \vec{\cal S}^{grav}_i + \vec{\cal S}^{8w}_i\right) \]
+\form#33:$ j $
+\form#34:$ k $
+\form#35:$ \dvol_d $
+\form#36:$ \vec{\cal F}^{\cal A} $
+\form#37:$ {\cal A} $
+\form#38:$ \vec{\cal S}^{geo}_i, \vec{\cal S}^{grav}_i, \vec{\cal S}^{8w}_d $
+\form#39:$ \vec{\cal R} $
+\form#40:$ m_{x_1} $
+\form#41:\[ {\cal R}_{\{x_1\},i,j,k}^{[m_{x_1}]} \quad -= \frac{\Delta t}{\Delta l_i} \left(p_{i+\HALF} - p_{i-\HALF}\right) \]
+\form#42:$ \Delta l_i $
+\form#43:\[ \pd{q}{t} + \nabla\cdot\vec{F} = 0\quad\Longrightarrow\quad \left\{\begin{array}{c@{+}c@{+}c@{+}c@{=}cl} \DS \pd{q}{t} & \DS \pd{F_x}{x} & \DS \pd{F_y}{y} & \DS \pd{F_z}{z} & \DS\; 0 &\qquad\textrm{Cartesian} \\ \noalign{\medskip} \DS \pd{q}{t} & \DS \frac{1}{r}\pd{(rF_{r})}{r} & \DS \frac{1}{r}\pd{F_{\phi}}{\phi} & \DS \pd{F_z}{z} & \DS \;0 & \qquad\textrm{Polar} \\ \noalign{\medskip} \DS \pd{q}{t} & \DS \frac{1}{r^2}\pd{(r^2F_{r})}{r} & \DS \frac{1}{rs}\pd{(s F_{\theta})}{\theta} & \DS \frac{1}{rs}\pd{F_\phi}{\phi} & \DS\; 0 &\qquad\textrm{Spherical} \\ \noalign{\medskip} \end{array}\right. \]
+\form#44:$ M_{ij} = M_{ji} $
+\form#45:\[ \pd{\vec{m}}{t} + \nabla\cdot\vec{M} = 0 \quad \Longrightarrow \quad \left\{ \begin{array}{c@{+}c@{+}c@{+}c@{=}c} \DS \pd{m_{R}}{t} & \DS \frac{1}{R}\pd{(RM_{RR})}{R} & \DS \frac{1}{R}\pd{M_{\phi R}}{\phi} & \DS \pd{ M_{zR}}{z} & \DS \frac{M_{\phi\phi}}{R} \\ \noalign{\medskip} \DS \pd{m_{\phi}}{t} & \DS \frac{1}{R^2}\pd{(R^2M_{R \phi})}{R} & \DS \frac{1}{R} \pd{ M_{\phi \phi}}{\phi} & \DS \pd{ M_{z \phi}}{z} & \DS 0 \\ \noalign{\medskip} \DS \pd{m_z}{t} & \DS \frac{1}{R}\pd{(R M_{Rz})}{R} & \DS \frac{1}{R}\pd{M_{\phi z}}{\phi} & \DS \pd{M_{zz}}{z} & \DS 0 \end{array}\right. \]
+\form#46:$ \Omega_{ij} = -\Omega_{ji} $
+\form#47:\[ \pd{\vec{B}}{t} + \nabla\cdot\vec{\Omega} = 0 \quad \Longrightarrow \quad \left\{ \begin{array}{c@{+}c@{+}c@{+}c@{=}c} \DS \pd{B_{R}}{t} & \DS & \DS \frac{1}{R}\pd{\Omega_{\phi R}}{\phi} & \DS \pd{\Omega_{z r}}{z} & \DS\; 0 \\ \noalign{\medskip} \DS \pd{B_{\phi}}{t} & \DS \pd{\Omega_{R\phi}}{R} & \DS & \DS \pd{\Omega_{z\phi}}{z} & \DS\; 0 \\ \noalign{\medskip} \DS \pd{B_z}{t} & \DS \frac{1}{R}\pd{(R \Omega_{Rz})}{R} & \DS \frac{1}{R}\pd{\Omega_{\phi z}}{\phi} & \DS & \DS\; 0 \end{array}\right. \]
+\form#48:$ \vec{\Omega} = \vec{v}\vec{B} - \vec{B}\vec{v} $
+\form#49:\[ \pd{\vec{m}}{t} + \nabla\cdot\vec{M} = 0 \quad \Longrightarrow \quad \left\{ \begin{array}{c@{+}c@{+}c@{+}c@{=}c} \DS \pd{m_{r}}{t} & \DS \frac{1}{r^2} \pd{(r^2M_{rr})}{r} & \DS \frac{1}{rs} \pd{(s M_{\theta r})}{\theta} & \DS \frac{1}{rs} \pd{ M_{\phi r}}{\phi} & \DS \DS\frac{M_{\theta\theta} + M_{\phi\phi}}{r} \\ \noalign{\medskip} \DS \pd{m_{\theta}}{t} & \DS \frac{1}{r^2}\pd{(r^2M_{r\theta})}{r} & \DS \frac{1}{rs} \pd{(s M_{\theta\theta})}{\theta} & \DS \frac{1}{rs} \pd{ M_{\phi\theta}}{\phi} & \DS \frac{M_{\phi\phi}\cot\theta - M_{\theta r}}{r} \\ \noalign{\medskip} \DS \pd{m_{\phi}}{t} & \DS \frac{1}{r^3} \pd{(r^3 M_{r\phi})}{r} & \DS \frac{1}{rs^2}\pd{(s^2 M_{\theta\phi})}{\theta} & \DS \frac{1}{rs} \pd{ M_{\phi\phi}}{\phi} & \DS 0 \end{array}\right. \]
+\form#50:$ s\equiv\sin\theta $
+\form#51:\[ \pd{\vec{B}}{t} + \nabla\cdot\vec{\Omega} = 0 \; \Longrightarrow \; \left\{\begin{array}{c@{+}c@{+}c@{+}c@{=}c} \DS \pd{B_{r}}{t} & \DS & \DS \frac{1}{rs} \pd{(s \Omega_{\theta r})}{\theta} & \DS \frac{1}{rs} \pd{\Omega_{\phi r}}{\phi} & \DS 0 \\ \noalign{\medskip} \DS \pd{B_{\theta}}{t} & \DS \frac{1}{r} \pd{(r\Omega_{r\theta})}{r} & \DS & \DS \frac{1}{rs}\pd{\Omega_{\phi\theta}}{\phi} & \DS 0 \\ \noalign{\medskip} \DS \pd{B_{\phi}}{t} & \DS \frac{1}{r} \pd{(r\Omega_{r\phi})}{r} & \DS \frac{1}{r} \pd{ \Omega_{\theta\phi}}{\theta} & \DS & \DS 0 \\ \noalign{\medskip} \end{array}\right. \]
+\form#52:$ \nabla\cdot\vec{v} < 0 $
+\form#53:$ |\nabla p|/p > 0.1 $
+\form#54:$ x_2=y,\phi$
+\form#55:$ x3 = \phi$
+\form#56:$ \vec{b} = \vec{n} X \vec{t} $
+\form#57:\[ \partial_t{\mathbf{V}} = - A\cdot\partial_x\mathbf{V} + \mathbf{S} \]
+\form#58:$ A $
+\form#59:$ S $
+\form#60:$ A(\mathbf{v})\cdot d\mathbf{v} $
+\form#61:\[ \mathrm{RHS}_i = \frac{dt}{dV_i}\Big(A_{i+1/2}F_{i+1/2} - A_{i-1/2}F_{i-1/2}\Big) + dt S_i \]
+\form#62:$ A_{i\pm 1/2} $
+\form#63:$ dV_i $
+\form#64:$ F_{i\pm 1/2} $
+\form#65:$ dt $
+\form#66:$ S_i $
+\form#67:$ <B_i> = (b_{i+1/2} + b_{i-1/2})/2$
+\form#68:\[ E_i \to E_i - \frac{\mathbf{B}_i^2}{2} + \frac{<\mathbf{B}_i^2>}{2} \]
+\form#69:\[ \partial_tB_r + \frac{1}{r}\partial_\theta E_\phi - \frac{1}{r\sin\theta}\partial_\phi E_\theta = -E_\phi\cot\theta/r \]
+\form#70:\[ \partial_t B_\theta + \frac{1}{r\sin\theta}\partial_\phi E_r - \partial_rE_\phi = E_\phi/r \]
+\form#71:\[ \partial_t B_\phi + \partial_r E_\theta - \frac{1}{r}\partial_\theta E_r = - E_\theta/r\]
+\form#72:\[ E_\phi = -(v \times B)_\phi = - (v_r B_\theta - v_\theta B_r) \,,\qquad E_\theta = -(v \times B)_\theta = - (v_\phi B_r - v_r B_\phi) \]
+\form#73:$ wt = \Delta y\Delta J + \epsilon $
+\form#74:$ \epsilon $
+\form#75:$\DS q = -\HALF\frac{d\log \Omega^2}{d\log R} $
+\form#76:$ \Omega_0 = \Omega(R_0)$
+\form#77:$ A = -q\Omega_0/2 $
+\form#78:$ \pi $
+\form#79:$x_3$
+\form#80:$x_2$
+\form#81:$x_1$
+\form#82:$ \vec{V}^n_i $
+\form#83:${\rm vL[i]} \equiv \vec{V}_{i,+} = \vec{V}^L_{i+\HALF} $
+\form#84:$\mathrm{vR[i]} \equiv \vec{V}^R_{i+\HALF} $
+\form#85:$A_{i+\HALF}$
+\form#86:$\DS \frac{2}{\Delta x_i + \Delta x_{i+1}}$
+\form#87:$ \lambda/\Delta l$
+\form#88:$ \eta/\Delta l^2$
+\form#89:\[ z^4 + bz^3 + cz^2 + dz + e = 0 \]
+\form#90:\[ z^3 + bz^2 + cz + d = 0 \]
+\form#91:$ V_{i,\pm}^{n+\HALF} = V_{i,\pm}^n + \partial_t V \Delta t^n/2 $
+\form#92:$ \partial_t V = -A\partial V_x + S $
+\form#93:$ \partial_t V \approx (V^{n+\HALF}_i-V^n_i)/(\Delta t/2) $
+\form#94:\[ \left\{\begin{array}{lcl} V_{i,+} &=& V_i + \Delta V_i \delta f_{i,R} \le V_{i+1} \\ \noalign{\medskip} V_{i,-} &=& V_i + \Delta V_i \delta f_{i,L} \ge V_{i-1} \end{array}\right. \quad\Longrightarrow\quad \Delta V_i < \min\left(\frac{V_{i+1} - V_i}{\delta f_{i,R}},\, \frac{V_i - V_{i-1}}{-\delta f_{i,L}},\,\right) \]
+\form#95:$\Delta V = {\rm MINMOD}\left[\Delta V, {\rm ABS\_MIN}\left(\frac{V_{i+1} - V_i}{\delta f_{i,R}},\, \frac{V_i - V_{i-1}}{-\delta f_{i,L}},\,\right)\right]$
+\form#96:\[ \begin{array}{cccl} x_1 & x_2 & x_3 & \mathrm{Geometry} \\ \noalign{\medskip} \hline x & y & z & \mathrm{Cartesian} \\ \noalign{\medskip} R & z & - & \mathrm{cylindrical} \\ \noalign{\medskip} R & \phi & z & \mathrm{polar} \\ \noalign{\medskip} r & \theta & \phi & \mathrm{spherical} \end{array} \]
+\form#97:$ \Phi(x_1,x_2,x_3) $
+\form#98:\[ F_c = F_{\rm class}/(|F_{\rm class}| + q) \]
+\form#99:$ F_{\rm class} $
+\form#100:$ q $
+\form#101:$ \kappa_\perp $
+\form#102:$ \kappa_\parallel $
+\form#103:$ \phi $
+\form#104:$ F_{\rm sat} = 5\phi\rho c_{\rm iso}^3 $
+\form#105:$ \vec{B} = \nabla\times\vec{A} $
+\form#106:\[ B_x = \pd{A_z}{y} - \pd{A_y}{z} \,,\quad B_y = \pd{A_x}{z} - \pd{A_z}{x} \,,\quad B_z = \pd{A_y}{x} - \pd{A_x}{y} \]
+\form#107:\[ B_R = \frac{1}{R}\pd{A_z}{\phi} - \pd{A_\phi}{z} \,,\quad B_z = \frac{1}{R}\left(\pd{(RA_\phi)}{R} - \pd{A_R}{\phi}\right) \]
+\form#108:\[ B_R = \frac{1}{R}\pd{A_z}{\phi} - \pd{A_\phi}{z} \,,\quad B_\phi = \pd{A_R}{z} - \pd{A_z}{R} \,,\quad B_z = \frac{1}{R}\pd{(RA_\phi)}{R} - \frac{1}{R}\pd{A_R}{\phi} \]
+\form#109:\[ B_r = \frac{1}{r\sin\theta}\pd{(\sin\theta A_\phi)}{\theta} - \frac{1}{r\sin\theta}\pd{A_\theta}{\phi} \,,\quad B_\theta = \frac{1}{r\sin\theta}\pd{A_r}{\phi} - \frac{1}{r}\pd{(rA_\phi)}{r} \,,\quad B_\phi = \frac{1}{r}\pd{(rA_\theta)}{r} - \frac{1}{r}\pd{A_r}{\theta} \]
+\form#110:$ B_{x_1} = b[0]\,, B_{x_2} = b[1]\,, B_{x_3} = b[2] $
+\form#111:\[ \pd{\vec{A}}{t} + \vec{E} = 0 \]
+\form#112:\[ \begin{array}{ll} \rm{RK2:}\quad &\DS A^{n+1} = A^n + \frac{\Delta t^n}{2} (E^n + E^*) \\ \noalign{\medskip} \rm{RK3:}\quad &\DS A^{n+1} = A^n + \frac{\Delta t^n}{6} (E^n + E^* + 4E^{**}) \\ \noalign{\medskip} \rm{CTU:}\quad &\DS A^{n+1} = A^n + \Delta t^nE^{n+\HALF} \end{array} \]
+\form#113:$ F_{i+\HALF} = ( 0,-E_z, E_y)_{i+\HALF}$
+\form#114:$ F_{j+\HALF} = ( E_z, 0,-E_x)_{j+\HALF}$
+\form#115:$ F_{k+\HALF} = (-E_y, E_x, 0)_{k+\HALF}$
+\form#116:$ (x_1,x_2) = (R,z) $
+\form#117:$ (x_1,x_2,x_3) = (R,\phi,z)$
+\form#118:\[ E_3 = v_2B_1 - v_1B_2 \]
+\form#119:$ E_z $
+\form#120:$ -E_\phi $
+\form#121:$ E_3 $
+\form#122:\[ \Delta B_1 = -\Delta t dE_3/dx_2 \quad\Longrightarrow\quad \Delta B_r = \Delta t dE_\phi/dz \]
+\form#123:$ = -E_\phi $
+\form#124:$ T_{ij} = T_{ji}$
+\form#125:\[ T_ij = 2*m*e(ij) + (l - 2/3 m)* div_V * delta_{ij} \]
+\form#126:$ e(ij)= (1/(h_ih_j))*e_{ij}$
+\form#127:$ e_{ij} = 0.5*( V_{i;j} + V_{j;i} ) $
+\form#128:\[ V_{i,\pm} = V_i \pm \frac{\Delta V_i}{2} - \frac{\Delta t}{2} A \frac{\Delta V}{\Delta x} + \frac{\Delta t}{2} S_i \]
+\form#129:$ V_\pm $
+\form#130:$ U_\pm $
+\form#131:\[ V^{n+\HALF}_{i,\pm} = V^n_{i,\pm} + \pd{V}{t}\frac{\Delta t}{2} \]
+\form#132:$ n \in [nbeg - 1, nend + 1] $
+\form#133:$ t \in [tbeg - 1, tend + 1] $
+\form#134:$ n \in [nbeg - 2, nend + 2] $
+\form#135:$ t \in [tbeg - 2, tend + 2] $
+\form#136:$ n \in [n_{\rm beg} - 1, n_{\rm end} + 1] $
+\form#137:$ t \in [t_{\rm beg} - 1, t_{\rm end} + 1] $
+\form#138:$ n \in [n_{\rm beg} - 2, n_{\rm end} + 2] $
+\form#139:$ t \in [t_{\rm beg} - 2, t_{\rm end} + 2] $
+\form#140:$ n \in [n_{\rm beg}, n_{\rm end}]$
+\form#141:$ t \in [t_{\rm beg}, t_{\rm end}]$
+\form#142:$ n \in [n_{\rm beg}-1, n_{\rm end}+1]$
+\form#143:$ t \in [t_{\rm beg}-1, t_{\rm end}+1]$
+\form#144:$ U^{n+\HALF}_{i\pm} += ({\cal RHS}_y + {\cal RHS}_z)\Delta t/2 $
+\form#145:$ [n_{\rm beg}-1, n_{\rm end} + 1]$
+\form#146:$ [t_{\rm beg}, t_{\rm end}]$
+\form#147:$ V_{i,+}$
+\form#148:$ V_{i+1,-}$
+\form#149:$ [n_{\rm beg}-2, n_{\rm end} + 2]$
+\form#150:$ [t_{\rm beg}-1, tend+1]$
+\form#151:$ U^{n+1} = U^n + \Delta t^n {\cal RHS}^{n+\HALF} $
+\form#152:$ U^{n+\HALF}_{i\pm} += ({\cal RHS}^n_y + {\cal RHS}^n_z)\Delta t/2 $
+\form#153:\[ T = \left( \begin{array}{ccc} T_{xx} & T_{xy} & T_{xz} \\ T_{yx} & T_{yy} & T_{yz} \\ T_{zx} & T_{zy} & T_{zz} \end{array}\right) \]
+\form#154:$ T_{ij} = 2\,m\,e(ij) + (l - 2/3 m) \nabla\cdot {\bf V}\, \delta_{ij} $
+\form#155:$ e(ij)= e_{ij}/(h_ih_j)$
+\form#156:$ e_{ij} = 0.5( V_{i;j} + V_{j;i} ) $
+\form#157:$ dV/dt = R $
+\form#158:\[ \left[ \frac{2\eta_x}{\Delta x^2} + \frac{2\eta_y}{\Delta y^2} + \frac{2\eta_z}{\Delta z^2} \right] \Delta t < 1 \quad \Longrightarrow \quad \left[ \frac{2}{\Delta t^p_x} + \frac{2}{\Delta t^p_y} + \frac{2}{\Delta t^p_z} \right] \frac{\Delta t}{N_d} = C_p \]
+\form#159:$C_p$
+\form#160:\[ C_dt = \frac{\eta_{i+\HALF} + \eta_{i-\HALF}}{2\Delta x^2} \frac{\eta_{j+\HALF} + \eta_{j-\HALF}}{2\Delta x^2} \frac{\eta_{k+\HALF} + \eta_{k-\HALF}}{2\Delta x^2} \]
+\form#161:\[ \left[ \frac{2\eta_x}{\Delta x^2} + \frac{2\eta_y}{\Delta y^2} + \frac{2\eta_z}{\Delta z^2} \right] \Delta t_{p, exp} = C_p < 1 \]
+\form#162:\[ C_p = \frac{\eta_{i+\HALF} + \eta_{i-\HALF}}{2\Delta x^2} + \frac{\eta_{j+\HALF} + \eta_{j-\HALF}}{2\Delta y^2} + \frac{\eta_{k+\HALF} + \eta_{k-\HALF}}{2\Delta z^2} \]
+\form#163:\[ C_p = \max\Big[\frac{\eta_{i+\HALF} + \eta_{i-\HALF}}{2\Delta x^2} + \frac{\eta_{j+\HALF} + \eta_{j-\HALF}}{2\Delta y^2} + \frac{\eta_{k+\HALF} + \eta_{k-\HALF}}{2\Delta z^2}\Big] \]
+\form#164:$\eta_{x,y,z}$
+\form#165:\[ \Delta t_{p}^{-1} = \max\left[\frac{\eta_{i+\HALF} + \eta_{i-\HALF}}{2\Delta x^2} + \frac{\eta_{j+\HALF} + \eta_{j-\HALF}}{2\Delta y^2} + \frac{\eta_{k+\HALF} + \eta_{k-\HALF}}{2\Delta z^2}\right] \]
+\form#166:\[ \frac{1}{N_d} 2\max\left[ \frac{\eta_x}{\Delta x^2} + \frac{\eta_y}{\Delta y^2} + \frac{\eta_z}{\Delta z^2} \right] \Delta t_{exp} = C_p < 1 \]
+\form#167:\[ \frac{2}{N_d} \max\left[ \frac{\eta_x}{\Delta x^2} + \frac{\eta_y}{\Delta y^2} + \frac{\eta_z}{\Delta z^2} \right] \Delta t_{exp} = C_p < \frac{1}{N_d} \]
+\form#168:$ N_d $
+\form#169:\[ \begin{array}{lcl} Y_0 & = & Q^n \\ \noalign{\medskip} Y_1 & = & Y_0 + \tilde{mu}_1\tau F_0 \\ \noalign{\medskip} Y_j & = & (1 - \mu_j - \nu_j)*Y_0 + \mu_j*Y_{j-1} + \nu_j*Y_{j-2} + \tilde{mu}_j*\tau*F_{j-1} + \tilde{\gamma}_j*\tau*F_0 \quad \rm{for} \quad j = 2,...,s \\ \noalign{\medskip} Q^{n+1} & = & Y_s \end{array} \]
+\form#170:$ dQ/dt = F$
+\form#171:\[ \begin{array}{lcl} Y_0 & = & Q^n \\ \noalign{\medskip} Y_1 & = & Y_0 + \tilde{\mu}_1\tau F_0 \\ \noalign{\medskip} Y_j & = & (1 - \mu_j - \nu_j) Y_0 + \mu_j Y_{j-1} + \nu_j Y_{j-2} + \tilde{\mu}_j \tau F_{j-1} + \tilde{\gamma}_j*\tau F_0 \quad \rm{for} \quad j = 2,...,s \\ \noalign{\medskip} Q^{n+1} & = & Y_s \end{array} \]
+\form#172:$\tau = \Delta t$
+\form#173:$\tilde{\mu}_1 = b_1 w_1, \mu_j = 2 b_j w_0/b_{j-1}, \nu_j = -b_j/b_{j-2}, \tilde{\mu}_j = 2 b_j w_1/b_{j-1}, \tilde{\gamma}_j = -\alpha_{j-1} \tilde{\mu}_j,$
+\form#174:\[\tau = \Delta t,\, \tilde{\mu}_1 = b_1 w_1,\, \mu_j = 2 b_j w_0/b_{j-1}, \, \nu_j = -b_j/b_{j-2},\, \tilde{\mu}_j = 2 b_j w_1/b_{j-1},\, \tilde{\gamma}_j = -\alpha_{j-1} \tilde{\mu}_j,\, \]
+\form#175:\[ \alpha_j = 1 - b_j T_j(w_0),\, w_0 = 1 + \epsilon/s^2,\, w_1 = T'_s(w_0)/T''_s(w_0),\, b_j = T''_j(w_0)/(T'_j(w_0))^2,\, b0=b1=b2,\, \epsilon = 2/13 \]
+\form#176:\[ \begin{array}{lcl} Y_0 & = & Q^n \\ \noalign{\medskip} Y_1 & = & Y_0 + \tilde{\mu}_1\tau F_0 \\ \noalign{\medskip} Y_j & = & (1 - \mu_j - \nu_j) Y_0 + \mu_j Y_{j-1} + \nu_j Y_{j-2} + \tilde{\mu}_j \tau F_{j-1} + \tilde{\gamma}_j\tau F_0 \quad \rm{for} \quad j = 2,...,s \\ \noalign{\medskip} Q^{n+1} & = & Y_s \end{array} \]
+\form#177:\[\tau = \Delta t,\, \tilde{\mu}_1 = b_1 w_1,\, \mu_j = 2 b_j \frac{w_0}{b_{j-1}}, \, \nu_j = -\frac{b_j}{b_{j-2}},\, \tilde{\mu}_j = 2 b_j \frac{w_1}{b_{j-1}},\, \tilde{\gamma}_j = -\alpha_{j-1} \tilde{\mu}_j,\, \]
+\form#178:\[ T_j(x) = \cos(j {\rm arccos(x)}) ,\, T_0(x) = 1,\, T_1(x)=x,\, T_j(x)=2*x*T_jm1(x) - T_jm2(x), \quad \rm{for}\quad j = 2,...,s \]
+\form#179:\[ \Delta t_c = \min_{ijk}\left[\frac{\Delta t M_R}{\epsilon}\right] \,\quad\rm{where}\quad \]
+\form#180:\[ \Delta t_c = \min_{ijk}\left[\frac{\Delta t M_R}{\epsilon}\right] \,\quad\rm{where}\quad \epsilon = \max\left[\left|\frac{p^{n+1}}{p^n} - 1\right|,\, |X^{n+1}-X^n|\right] \]
+\form#181:\[ \Delta t_c = \min_{ijk}\left[\frac{\Delta t^n M_R}{\epsilon}\right] \,\quad\rm{where}\quad \epsilon = \max\left(\left|\frac{p^{n+1}}{p^n} - 1\right|,\, |X^{n+1}-X^n|\right) \]
+\form#182:$ M_R $
+\form#183:$ x_3 = \phi$
+\form#184:$ \kappa_\| $
+\form#185:$ \kappa_\bot $
+\form#186:\[ \pd{q}{t} = - \nabla\cdot\Big(D\nabla q\Big) \]
+\form#187:$\vec{F} = D\nabla q$
+\form#188:\[ \pd{\vec{B}}{t} = - \nabla\times{\vec{E}_{res}} \,,\qquad E_{res} = -\tens{\eta}\vec{J} \]
+\form#189:$J = \nabla\times\vec{B}$
+\form#190:\[ \pd{\vec{B}}{t} = - \nabla\times{\vec{E}_{\rm res}} = -\left(\begin{array}{l} \partial_y \eta_z J_z - \partial_z \eta_y J_y \\ \noalign{\medskip} \partial_z \eta_x J_x - \partial_x \eta_z J_z \\ \noalign{\medskip} \partial_x \eta_y J_y - \partial_y \eta_x J_x \end{array}\right) \,,\quad \vec{E}_{\rm res} = -\tens{\eta}\cdot\vec{J} \]
+\form#191:$\tens{\eta}$
+\form#192:\[ \pd{\vec{B}}{t} = - \nabla\times{\vec{E}_{\rm res}} = -\left(\begin{array}{l} \partial_y (\eta_z J_z) - \partial_z(\eta_y J_y) \\ \noalign{\medskip} \partial_z (\eta_x J_x) - \partial_x(\eta_z J_z) \\ \noalign{\medskip} \partial_x (\eta_y J_y) - \partial_y(\eta_x J_x) \end{array}\right) \,,\quad \vec{E}_{\rm res} = \tens{\eta}\cdot\vec{J} \]
+\form#193:\[ \pd{E}{t} = -\nabla\Big[(\tens{eta}\cdot\vec{J})\times\vec{B}\Big] \]
+\form#194:\[ \pd{\vec{B}}{t} = - \nabla\times{\vec{E}_{\rm res}} = -\left(\begin{array}{l} \partial_y (\eta_z J_z) - \partial_z(\eta_y J_y) \\ \noalign{\medskip} \partial_z (\eta_x J_x) - \partial_x(\eta_z J_z) \\ \noalign{\medskip} \partial_x (\eta_y J_y) - \partial_y(\eta_x J_x) \end{array}\right) \,,\qquad \left(\vec{E}_{\rm res} = \tens{\eta}\cdot\vec{J}\right) \]
+\form#195:\[ \pd{E}{t} = -\nabla\Big[(\tens{\eta}\cdot\vec{J})\times\vec{B}\Big] \]
+\form#196:\[ \pd{E}{t} = -\nabla\cdot\Big[(\tens{\eta}\cdot\vec{J})\times\vec{B}\Big] = \pd{}{x}\left(\eta_yJ_yB_z - \eta_zJ_zB_y\right) + \pd{}{y}\left(\eta_zJ_zB_x - \eta_xJ_xB_z\right) + \pd{}{z}\left(\eta_xJ_xB_y - \eta_yJ_yB_x\right) \]
+\form#197:\[ \pd{\vec{B}}{t} = - \nabla\times{\vec{E}_{\rm res}} = \pd{}{x}\left(\begin{array}{l} 0 \\ \noalign{\medskip} \eta_z J_z \\ \noalign{\medskip} - \eta_y J_y \end{array}\right) + \pd{}{y}\left(\begin{array}{l} - \eta_z J_z \\ \noalign{\medskip} 0 \\ \noalign{\medskip} \eta_x J_x \end{array}\right) + \pd{}{z}\left(\begin{array}{l} \eta_y J_y \\ \noalign{\medskip} -\eta_x J_x \\ \noalign{\medskip} 0 \end{array}\right) \,,\qquad \left(\vec{E}_{\rm res} = \tens{\eta}\cdot\vec{J}\right) \]
+\form#198:\[ \pd{\vec{B}}{t} = - \nabla\times{\vec{E}_{\rm res}} = \pd{}{x}\left(\begin{array}{c} 0 \\ \noalign{\medskip} \eta_z J_z \\ \noalign{\medskip} - \eta_y J_y \end{array}\right) + \pd{}{y}\left(\begin{array}{c} - \eta_z J_z \\ \noalign{\medskip} 0 \\ \noalign{\medskip} \eta_x J_x \end{array}\right) + \pd{}{z}\left(\begin{array}{c} \eta_y J_y \\ \noalign{\medskip} -\eta_x J_x \\ \noalign{\medskip} 0 \end{array}\right) \,,\qquad \left(\vec{E}_{\rm res} = \tens{\eta}\cdot\vec{J}\right) \]
+\form#199:\[ \pd{E}{t} = -\nabla\cdot\Big[(\tens{\eta}\cdot\vec{J})\times\vec{B}\Big] = - \pd{}{x}\left(\eta_yJ_yB_z - \eta_zJ_zB_y\right) - \pd{}{y}\left(\eta_zJ_zB_x - \eta_xJ_xB_z\right) - \pd{}{z}\left(\eta_xJ_xB_y - \eta_yJ_yB_x\right) \]

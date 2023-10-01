@@ -1,0 +1,27 @@
+title coronal equilibrium
+c vary temperature in coronal equilibrium, monitor coolnd
+c
+c commands controlling continuum =========
+coronal 4 vary
+grid 4 9 0.25
+c
+c commands for density & abundances =========
+hden 0
+c
+c commands controlling geometry  =========
+stop zone 1
+set dr 0
+c
+c commands controlling output    =========
+save grid "grid_coronal.grd" last no hash
+save monitors "grid_coronal.asr" last
+save cooling "grid_coronal.col" last no hash
+monitor CTOT grid "grid_coronal.dat" 0.05
+c 
+c grid_coronal.in
+c class coronal 
+c ========================================
+c 
+*********
+
+this is a classical cooling function calculation

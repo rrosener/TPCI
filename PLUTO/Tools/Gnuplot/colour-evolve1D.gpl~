@@ -1,0 +1,17 @@
+###################################################################
+#
+# TIME EVOLUTION
+# - plots of variable <nvar>, <nf> files with <inc> steps 
+# - time evolution: blue to green color scheme
+# - load with:
+#   > nvar=3; nf=35; inc=3; load "./colour-evolve1D.gpl
+#
+# (M.Salz)
+#
+###################################################################
+
+set palette file './gpl.blue-green-palette.gpl' using 1:2:3
+set cbrange [0:nf]
+
+
+plot for [i=0:nf:inc] "./data.".(i<10 ? "000".i:(i<100 ? "00".i:(i<1000 ? "0".i:i))).".tab" u 1:nvar w l lc palette  cb i  not

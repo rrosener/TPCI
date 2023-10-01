@@ -1,0 +1,62 @@
+title limit_caseb_he2_den8 He II case B
+c
+c commands controlling continuum =========
+table agn 
+ionization parameter 0
+c
+c commands for density & abundances =========
+hden = 8
+element helium abundance 1
+init file="ism.ini"
+c
+c commands controlling geometry  =========
+set dr 0
+stop zone 1
+c
+c other commands for details     =========
+atom h-like element helium levels resolved 20 
+atom h-like element helium levels collapsed 30 
+case b hummer no photoionization no Pdest 
+no induced processes (OK)
+constant temperature = 5e4 K
+c
+c commands controlling output    =========
+normalize to "Ca B" 1640 // the balmer alpha transition
+save overview "limit_caseb_he2_den8.ovr"
+save performance "limit_caseb_he2_den8.per"
+save results "limit_caseb_he2_den8.rlt"
+save monitors "limit_caseb_he2_den8.asr"
+c
+monitor Case B H-like helium error 0.1 range 1000 40000A faint -2
+c
+c commands giving the monitors    =========
+monitor line "He 2"  1640A  1.0000 
+monitor line "He 2"  1215A  0.3667
+monitor line "He 2"  1085A  0.1771 
+monitor line "He 2"  1025A  0.1013 
+monitor line "He 2"  4686A  0.1053 
+monitor line "He 2"  3203A  0.0544 
+monitor line "He 2"  2733A  0.0314 
+monitor line "He 2"  2511A  0.0200 
+monitor line "He 2" 1.012m  0.0231 
+monitor line "He 2"  6560A  0.0140 
+monitor line "He 2"  5412A  0.0089 
+monitor line "He 2"  4860A  0.0061
+monitor line "He 2" 1.864m  0.0070 
+monitor line "He 2" 1.163m  0.0047 
+monitor line "He 2"  9345A  0.0032 0.1
+// 
+c limit_caseb_he2_den8.in
+c class limit 
+c ========================================
+c 
+
+This test case compares the predictions of the multi-level hydrogen atom
+with the Storey and Hummer (1995) results.  The set dr command sets the
+zone thickness to 1 cm.  The case b command sets Lyman line optical depths
+to very large values. 
+Checks:
+-	Neutral fractions
+-	H* emissivity
+-	Relative line intensities
+

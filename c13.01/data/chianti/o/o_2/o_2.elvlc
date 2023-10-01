@@ -1,0 +1,26 @@
+  1     1     2s2.2p3     4  0 S  1.5  4          0.000       0.000000          0.000       0.000000
+  2     1     2s2.2p3     2  2 D  2.5  6      26810.550       0.244316      30024.133       0.273600
+  3     1     2s2.2p3     2  2 D  1.5  4      26830.570       0.244498      30047.176       0.273810
+  4     1     2s2.2p3     2  1 P  1.5  4      40468.010       0.368772      40573.180       0.369730
+  5     1     2s2.2p3     2  1 P  0.5  2      40470.000       0.368790      40578.668       0.369780
+  6     2     2s.2p4      4  1 P  2.5  6     119837.210       1.092037     120164.000       1.095015
+  7     2     2s.2p4      4  1 P  1.5  4     120000.430       1.093524     120322.000       1.096455
+  8     2     2s.2p4      4  1 P  0.5  2     120082.860       1.094276     120417.000       1.097321
+  9     2     2s.2p4      2  2 D  1.5  4     165996.500       1.512671     177346.000       1.616096
+ 10     2     2s.2p4      2  2 D  2.5  6     165988.460       1.512598     177347.000       1.616105
+ 11     2     2s.2p4      2  0 S  0.5  2     195710.470       1.783445     206920.000       1.885594
+ 12     2     2s.2p4      2  1 P  1.5  4     212593.820       1.937298     232312.000       2.116983
+ 13     2     2s.2p4      2  1 P  0.5  2     212762.250       1.938832     232502.000       2.118714
+ 14     3     2p5         2  1 P  1.5  4          0.000       0.000000     346838.000       3.160621
+ 15     3     2p5         2  1 P  0.5  2          0.000       0.000000     347115.000       3.163145
+ -1
+%filename: o_2.elvlc
+%experimental energy levels: Martin, W.C., Sugar, J., Musgrove, A., Dalton, G.R., 1995, 
+   NIST Database for Atomic Spectroscopy, Version 1.0, NIST Standard Reference Database 61.
+%Theoretical energy levels (levels 1-5): Montenegro, M., Eissner, W., Nahar, S., Pradhan, A.K., 2006, J.Phys.B, 39, 1863
+%Theoretical energy levels (levels 6-15): Bhatia A.K. (private communications)
+%comment: swapped levels 4 and 5 to be consistent with new collision data, and updated theoretical energy levels
+% produced as part of the Arcetri/Cambridge/NRL 'CHIANTI' atomic data base collaboration
+%
+% Enrico Landi and Peter Young - Jun 6, 2006
+ -1

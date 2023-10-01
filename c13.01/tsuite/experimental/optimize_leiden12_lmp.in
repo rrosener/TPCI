@@ -1,0 +1,52 @@
+c optimize for 'low-mass protostar'
+c table draine 3 log
+c extiguish 24
+c blackbody 30000 
+table agn
+ionization parameter -4
+hden 6 vary 
+c
+c zone 1
+stop column density 23
+c
+normalize to "CO  " 200.2m
+set save prefix "optimize_leiden12_lmp"
+save leiden ".lei" last
+save overview ".ovr" last
+save dr ".dr" last
+optimize intensity -12.1986 0.016 
+optimize lines
+CO   200.2m	1.000	0.016
+CO   185.9m	1.365	0.012
+CO   173.6m	1.493	0.012
+CO   162.8m	1.442	0.022
+CO   153.2m	1.401	0.007
+CO   144.7m	1.284	0.011
+CO   137.2m	1.210	0.009
+CO   130.3m	1.166	0.007
+CO   124.2m	1.109	0.014
+CO   118.5m	1.021	0.017
+CO   113.4m	0.771	0.031
+CO   108.7m	0.768	0.031
+CO   104.4m	0.667	0.043
+CO   100.4m	0.610	0.052
+CO   96.75m	0.676	0.030
+CO   93.32m	0.689	0.028
+CO   90.14m	0.651	0.024
+CO   87.17m	0.534	0.038
+CO   81.78m	0.417	0.034
+CO   79.34m	0.420	0.045
+CO   77.04m	0.436	0.043
+CO   74.87m	0.318	0.055
+CO   72.82m	0.242	0.072
+CO   70.89m	0.204	0.078
+CO   69.06m	0.248	0.076
+CO   67.32m	0.186	0.085
+CO   65.67m	0.120	0.132
+CO   64.10m	0.171	0.120
+CO   61.18m	0.125	0.127
+CO   59.83m	0.111	0.114
+CO   58.53m	0.062	0.231
+CO   54.97m	0.062	0.179
+CO   53.88m	0.104	0.167
+end of lines

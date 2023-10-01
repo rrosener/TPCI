@@ -1,0 +1,147 @@
+title FeII model 
+table agn
+print lines column
+print lines sort intensity 
+atom feii 
+hden 12
+phi(h) 21
+stop column density 23
+iterate convergence 
+//
+// affects appearance of printout
+normalize to "totl" 1216 100 
+print line faint 1  // get rid of lots of faint lines 
+//
+// these are to try to speed things up
+init "c84.ini"
+//
+save performance "feii_blr_n12_p21.per"
+save monitors "feii_blr_n12_p21.asr" last
+save feii continuum units microns "feii_blr_n12_p21.fe2con" last
+save convergence reason "feii_blr_n12_p21.cvr"
+save feii lines "feii_blr_n12_p21.lin" last
+save feii populations all "feii_blr_n12_p21.lev" last
+save feii column densities "feii_blr_n12_p21.fe2col" last
+save overview "feii_blr_n12_p21.ovr" last
+save dr "feii_blr_n12_p21.dr" last 
+//
+// strong blr lines
+// >>chng 10 jun 29, from 7.768 to 9.485, init
+// >>chng 11 aug 06, from 9.485 to 9.461, effects of yesterday's changes, mostly r5341
+monitor line luminosity "totl"  1216 9.461 //total Hydrogen Lyman-alpha 1215.67 
+//
+// >>chng 10 jun 29, from 5.112 to 8.688, init
+// >>chng 11 aug 06, from 8.688 to 8.658, effects of yesterday's changes, mostly r5341
+// >>chng 12 oct 26, from 8.658 to 8.632, adjust montiors to this branch
+monitor line luminosity "totl"  1397 8.632 //total of sum of both Si IV comp
+//
+// >>chng 10 jun 29, from 3.327 to 8.048, init
+// >>chng 11 jul 12, from 8.048 to 8.1, enable fit to Badnell DR suppression
+// >>chng 11 aug 06, from 8.1 to 8.06, effects of yesterday's changes, mostly r5341
+// >>chng 12 nov 01, from 8.06 to 8.021, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1402 8.021 //total O IV] 1402 
+//
+//total of sum of both C IV comp
+// >>chng 10 jun 29, from 5.459 to 9.222, init
+monitor line luminosity "totl"  1549 9.222 error 0.1
+//
+// >>chng 10 jun 29, from 6.816 to 8.831, init
+// >>chng 12 oct 09, from 8.831 to 8.871, fix CRD esc prob
+// >>chng 12 oct 22, from 8.871 to 8.844, zone tau in rt_line_one
+monitor line luminosity "he 2"  1640 8.844 //total He II Balmer-alpha 1640
+//
+// >>chng 10 jun 29, from 4.53 to 7.37, init
+// >>chng 11 jul 12, from 7.37 to 7.289, enable fit to Badnell DR suppression
+// >>chng 12 oct 22, from 7.289 to 7.25, zone tau in rt_line_one
+monitor line luminosity "o  3"  1666 7.25 //total O III] 1666
+//
+//total of sum of CIII] 1908.73+
+// >>chng 10 jun 29, from 4.541 to 7.112, init
+// >>chng 11 jul 12, from 7.112 to 7.053, enable fit to Badnell DR suppression
+// >>chng 12 nov 01, from 7.053 to 6.951, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1909 6.951 error 0.1
+//
+//total of sum of Si III] 1892+
+// >>chng 10 jun 29, from 6.29 to 7.909, init
+// >>chng 11 jul 12, from 7.909 to 7.857, enable fit to Badnell DR suppression
+// >>chng 11 aug 06, from 7.857 to 7.931, effects of yesterday's changes, mostly r5341
+// >>chng 12 oct 26, from 7.931 to 7.888, adjust montiors to this branch
+// >>chng 12 nov 01, from 7.888 to 7.793, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1888 7.793 error 0.1
+//
+// >>chng 10 jun 29, from 5.449 to 7.684, init
+// >>chng 11 aug 06, from 7.684 to 7.707, effects of yesterday's changes, mostly r5341
+// >>chng 12 oct 22, from 7.707 to 7.655, zone tau in rt_line_one
+monitor line luminosity "totl"  1860 7.655 //total sum of both Al III comp
+//
+// >>chng 10 jun 29, from 5.39 to 6.157, init
+// >>chng 11 nov 16, from 6.157 to 6.04, adjust newmole monitors
+// >>chng 12 nov 01, from 6.04 to 5.994, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  2326 5.994 err 0.1 //total C II] 2324.69+2328.12
+//
+// >>chng 10 jun 29, from 7.438 to 8.088, init
+// >>chng 12 mar 17, from 8.088 to 8.129, Chianti 7 data
+// >>chng 12 apr 02, from 8.129 to 8.086, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 oct 26, from 8.086 to 8.06, adjust montiors to this branch
+monitor line luminosity "totl"  2798 8.06 //total of sum of both Mg II comp
+//
+//total of sum of both Mg II comp
+// >>chng 10 jun 29, from 7.324 to 8.821, init
+monitor line luminosity "He 1" 584.3 8.821 error 0.1
+//
+// >>chng 10 jun 29, from 7.152 to 8.829, init
+// >>chng 11 nov 16, from 8.829 to 8.784, adjust newmole monitors
+// >>chng 12 oct 17, from 8.784 to 8.805, Improved CRD esc prob
+// >>chng 12 oct 22, from 8.805 to 8.752, zone tau in rt_line_one
+monitor line luminosity "Fe2b"  2500 8.752 //total of sum of both Mg II comp
+//
+//total of sum of both Mg II comp
+// >>chng 10 jun 29, from 6.645 to 7.379, init
+// >>chng 11 nov 16, from 7.379 to 7.325, adjust newmole monitors
+// >>chng 12 oct 09, from 7.325 to 7.425, fix CRD esc prob
+// >>chng 12 oct 17, from 7.425 to 7.361, Improved CRD esc prob
+monitor line luminosity "He 1"  5876 7.361 error 0.1
+//
+// >>chng 10 jun 29, from 7.145 to 8.234, init
+// >>chng 11 nov 16, from 8.234 to 8.125, adjust newmole monitors
+// >>chng 12 mar 07, from 8.125 to 8.101, renorm to r5961 results
+// >>chng 12 oct 17, from 8.101 to 8.169, Improved CRD esc prob
+// >>chng 12 oct 22, from 8.169 to 8.261, zone tau in rt_line_one
+monitor line luminosity "Fe2C" 0 8.261
+//
+// >>chng 10 jun 29, from 7.013 to 8.615, init
+// >>chng 11 nov 16, from 8.615 to 8.573, adjust newmole monitors
+// >>chng 12 oct 17, from 8.573 to 8.605, Improved CRD esc prob
+// >>chng 12 oct 22, from 8.605 to 8.553, zone tau in rt_line_one
+monitor line luminosity "Fe2b" 2445 8.553
+//
+// >>chng 10 jun 29, from 5.65 to 7.283, init
+// >>chng 11 nov 16, from 7.283 to 7.221, adjust newmole monitors
+// >>chng 12 oct 09, from 7.221 to 7.198, fix CRD esc prob
+// >>chng 12 oct 22, from 7.198 to 7.098, zone tau in rt_line_one
+monitor line luminosity "Fe2b" 4558 7.098
+//
+// >>chng 10 jun 29, from 18 to 14.97, init
+// >>chng 11 jun 22, from 14.97 to 13.81, tune Te solver
+// >>chng 11 nov 16, from 13.81 to 16.47, adjust newmole monitors
+// >>chng 11 nov 28, from 16.47 to 32.28, fix mistakes in r5689 due to mixed heritage of test suite output
+// >>chng 11 dec 18, from 32.28 to 30.02, adjust outstanding botches
+// >>chng 12 mar 07, from 30.02 to 16.37, renorm to r5961 results
+// >>chng 12 mar 10, from 16.37 to 13.94, adjust several performance monitors
+// >>chng 12 apr 02, from 13.94 to 14.99, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 may 22, from 14.99 to 13.37, bugfix r6155
+// >>chng 12 oct 19, from 13.37 to 14.44, update collisional suppression DR
+// >>chng 12 oct 22, from 14.44 to 13.56, zone tau in rt_line_one
+monitor itrzn 13.56 error 0.06
+//
+// >>chng 11 nov 16, from 3 to 4, adjust newmole monitors
+monitor niter 4 error 0.01
+//
+// >>chng 10 jun 29, from 316 to 409, init
+// >>chng 11 nov 16, from 409 to 380, adjust newmole monitors
+// >>chng 12 jul 02, from 380 to 415, change H,H=>H2,hv rate
+// >>chng 12 aug 16, from 415 to 379, fix radasc bug from r6346
+// >>chng 12 oct 22, from 379 to 401, zone tau in rt_line_one
+monitor nzone 401 
+
+This is one of the models that sample the LOC plane.

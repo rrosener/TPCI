@@ -1,0 +1,136 @@
+title BLR model, density 1e14 cm-3, flux of H-ion phots 1e22 cm2 s-1
+c 
+c commands controlling continuum =========
+table agn
+phi(h) 22
+c
+c commands for density & abundances =========
+hden 14
+c
+c commands controlling geometry  =========
+stop column density 23
+c
+c other commands for details     =========
+iterate convergence 
+c these are to try to speed things up
+init "c84.ini"
+no level2 lines
+c
+c commands controlling output    =========
+print h-like departure hydrogen 
+print h-like departure helium 
+normalize to "totl" 1216 100 
+print line faint 1  // get rid of lots of faint lines 
+save performance "blr_n14_p22.per"
+save monitors "blr_n14_p22.asr" last
+save convergence reason last "blr_n14_p22.cvr"
+save overview "blr_n14_p22.ovr" last
+save dr "blr_n14_p22.dr" last 
+c
+c commands giving the monitors    =========
+// strong blr lines
+// >>chng 12 may 22, from 7.371 to 7.321, bugfix r6155
+// >>chng 12 jul 09, from 7.321 to 7.482, get rid of major discontinuities in 3body rates
+// >>chng 12 nov 01, from 7.482 to 7.606, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1035 7.606 0.10 //total of sum of both O VI comp
+// 
+monitor line luminosity "totl"  1216 9.175  0.10 //total Hydrogen Lyman-alpha 1215.67 
+// 
+// >>chng 12 may 22, from 8.737 to 8.711, bugfix r6155
+// >>chng 12 jul 09, from 8.711 to 8.758, get rid of major discontinuities in 3body rates
+// >>chng 12 nov 01, from 8.758 to 8.887, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  1240 8.887 //total of sum of both N V comp
+// 
+// >>chng 12 apr 18, from 9.381 to 9.4008  stout merge
+// >>chng 12 may 22, from 9.401 to 9.366, bugfix r6155
+// >>chng 13 feb 02, from 9.366 to 9.376 mean gcc icc nephos
+monitor line luminosity "totl"  1397 9.376 error 0.1 //total of sum of both Si IV comp
+// 
+monitor line luminosity "totl"  1402 7.24 0.10  //total O IV] 1402 
+// 
+// >>chng 12 oct 20, from 9.677 to 9.657, change g-bar for forbidden subordinate in chianti
+monitor line luminosity "totl"  1549 9.657  //total of sum of both C IV comp
+//
+monitor line luminosity "Inwd" 1549 9.637, 
+//
+// >>chng 12 apr 18, from 8.966 to 9.005, stout merge
+// >>chng 12 oct 09, from 9.005 to 9.091, fix CRD esc prob
+// >>chng 12 oct 13, from 9.091 to 8.985, Badnell revise DR collisional suppression fit
+// >>chng 12 oct 26, from 8.985 to 9.023, adjust montiors to this branch
+// >>chng 12 nov 01, from 9.023 to 8.972, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "H  1" 4861 8.972 error 0.1 
+//
+// >>chng 12 oct 09, from 8.929 to 8.952, fix CRD esc prob
+monitor line luminosity "Inwd" 4861 8.952, 
+// 
+// >>chng 12 apr 02, from 9.469 to 9.789, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 apr 18, from 9.789 to 9.76, stout merge
+// >>chng 12 apr 28, from 9.76 to 9.69, middling of all runs
+// >>chng 12 may 22, from 9.69 to 9.794, bugfix r6155
+// >>chng 12 jul 02, from 9.794 to 9.714, change H,H=>H2,hv rate
+// >>chng 12 jul 17, from 9.714 to 9.794, minor changes due to r6414
+// >>chng 12 jul 19, from 9.794 to 9.744, OI line opacity fix
+// >>chng 12 aug 21, from 9.744 to 9.805, fix CRPHOT botches and HD crash
+// >>chng 12 oct 13, from 9.805 to 9.715, Badnell revise DR collisional suppression fit
+// >>chng 12 oct 17, from 9.715 to 9.66, Improved CRD esc p
+// >>chng 12 oct 19, from 9.66 to 9.862, update to DR collisional suppression
+// >>chng 12 oct 22, from 9.862 to 9.656, zone tau in rt_line_one
+// >>chng 12 oct 26, from 9.656 to 9.836, adjust montiors to this branch
+// >>chng 12 nov 01, from 9.836 to 9.657, Chianti experimental levels, revised Badnell DR suppression
+// >>chng 12 dec 14, from 9.657 to 9.706, CX to ground state + convergence tweaks
+// >>chng 13 jan 14, from 9.706 to 9.778, Pelec_esc improvements
+// >>chng 13 feb 02, from 9.778 to 9.718, BUGFIX, largely undo r6703 
+// >>chng 13 feb 02, from 9.718 to 9.7555 mean gcc icc nephos
+// >>chng 13 feb 17, botch icc but not gcc, comment out c13
+// monitor line luminosity "he 2"  1640 9.7555 error 0.1  //total He II Balmer-alpha 1640
+// 
+// >>chng 12 apr 02, from 7.349 to 7.457, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 apr 28, from 7.457 to 7.44  middling of all runs
+// >>chng 12 may 22, from 7.44 to 7.376, bugfix r6155
+monitor line luminosity "o  3"  1666 7.376 error 0.1  //total O III] 1666
+//
+// >>chng 12 apr 02, from 7.185 to 7.268, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 may 22, from 7.268 to 7.211, bugfix r6155
+monitor line luminosity "totl"  1909 7.211  //total of sum of CIII] 1908.73+
+// 
+// >>chng 12 apr 02, from 8.511 to 8.579, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 may 22, from 8.579 to 8.53, bugfix r6155
+monitor line luminosity "totl"  1888 8.53 0.10  //total of sum of Si III] 1892+
+// 
+// >>chng 12 apr 02, from 9.234 to 9.263, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 may 22, from 9.263 to 9.228, bugfix r6155
+// >>chng 12 jul 09, from 9.228 to 9.2, get rid of major discontinuities in 3body rates
+// >>chng 13 feb 02, from 9.2 to 9.22, BUGFIX, largely undo r6703 
+monitor line luminosity "totl"  1860 9.22  //total sum of both Al III comp
+//
+// >>chng 12 nov 01, from 6.826 to 6.776, Chianti experimental levels, revised Badnell DR suppression
+monitor line luminosity "totl"  2326 6.776 0.10 //total C II] 2324.69 + 2328.12
+//
+// >>chng 12 apr 02, from 9.248 to 9.274, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 jul 01, from 9.274 to 9.24, update Badnell DR to 13-electron iso sequence
+monitor line luminosity "totl"  2798 9.24  //total of sum of both Mg II comp
+//
+// >>chng 12 mar 17, from 44.74 to 42.06, adjust near botches after newmole merge
+// >>chng 12 apr 02, from 42.06 to 47.61, Chianti 7 change, gcc 4.4.6 wolkje
+// >>chng 12 apr 18, from 47.61 to 42.14, stout merge
+// >>chng 12 may 22, from 42.14 to 24.73, bugfix r6155
+// >>chng 12 jul 02, from 24.73 to 22.09, change H,H=>H2,hv rate
+// >>chng 12 jul 17, from 22.09 to 20.85, minor changes due to r6414
+// >>chng 12 aug 16, from 20.85 to 23.04, fix radasc bug from r6346
+// >>chng 12 oct 19, from 23.04 to 21.26, update to DR collisional suppression
+// >>chng 12 oct 22, from 21.26 to 23.4, zone tau in rt_line_one
+monitor itrzn 23.4 error 0.06
+//
+monitor niter 3
+//
+// >>chng 12 jul 09, from 384 to 415, get rid of major discontinuities in 3body rates
+// >>chng 12 aug 16, from 415 to 383, further fix of Rawlings H2 rates
+// >>chng 12 oct 09, from 383 to 402, fix CRD esc prob
+// >>chng 12 oct 17, from 402 to 383, Improved CRD esc p
+// >>chng 12 oct 26, from 383 to 412, adjust montiors to this branch
+monitor nzone 412 
+//
+c blr_n14_p22.in 
+c class blr 
+c ========================================
+

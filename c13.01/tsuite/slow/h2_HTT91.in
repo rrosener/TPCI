@@ -1,0 +1,236 @@
+title Hollenbach et al. 1991 low-density PDR
+iterate 
+c
+//>>refer Hollenbach, D., Takahashi, T., & Tielens, A.G.G.M., 1991, ApJ,
+//>>refercon 377, 192-209
+c
+hden 3
+c
+c this is hot star continuum
+black 30000
+intensity  0.2 range  0.4412 to 1 Ryd
+c this will remove all ionizing radiation
+extinguish 24 0
+c
+turbulence 1.5 km/sec
+c first continuum is FIR hot grain continuum produced in 
+c unmodeled HII Region
+// turn on quantum heating
+grains orion, abundance log 0.16 
+// turn on PAHs using default abundance dependence on physical conditions
+grains PAH 
+// turn on the big H2 molecule 
+atom h2 
+init file="ism.ini"
+abundances he -1.01 c -3.52 n-8 o-3.30 ne-8 mg-5.89
+continue si -6.10 s -5.10 cl-7 ar-8 fe -6.60
+normalize to 157.6m "C  2" 
+sphere
+case b
+cosmic rays, background
+c stop when gas is fully neutral
+stop efrac -10
+c this is to stop at an intended place, since results would be
+c very dependent on details if we stop on temperature
+stop thickness 18.954
+c stop when gas is cold
+stop temperature 10 linear
+c add this to mimic unmodelled neutral gas
+double optical depths
+c
+c uv lines are strongly pumped by stellar continuum, break out contribution
+print line pump
+print line optical depths
+print ages
+c
+save performance "h2_HTT91.per"
+save overview last "h2_HTT91.ovr"
+save dr "h2_HTT91.dr"
+save molecules last "h2_HTT91.mol"
+save results last "h2_HTT91.rlt"
+save monitors last "h2_HTT91.asr"
+save continuum units microns last "h2_HTT91.con"
+save heating last "h2_HTT91.het"
+save cooling last "h2_HTT91.col"
+save chemistry rates destruction "h2_HTT91.H2d" "H2"
+save chemistry rates creation "h2_HTT91.H2c" "H2"
+c
+// >>chng 12 apr 09, from -2.595 to -2.539, update backbround CR to Indiolo_07 (8x larger)
+monitor line luminosity "c  2" 157.6m -2.539
+//
+// >>chng 05 jun 21, from -3.38 to -3.36, chng cr, grn deex
+// >>chng 12 apr 09, from -3.36 to -3.258, update backbround CR to Indiolo_07 (8x larger)
+monitor line luminosity "O  1" 63.17m -3.258 error 0.1 
+//
+// >>chng 11 nov 16, from -2.549 to -2.52, adjust newmole monitors
+// >>chng 12 apr 09, from -2.52 to -2.47, update backbround CR to Indiolo_07 (8x larger)
+monitor line luminosity "grgh" 0 -2.47
+//
+// >>chng 12 apr 09, from 68.8 to 74.52, update backbround CR to Indiolo_07 (8x larger)
+monitor temperature carbon 2 74.52
+//
+// >>chng 11 nov 16, from 21.37 to 21.26, adjust newmole monitors
+// >>chng 12 apr 09, from 21.26 to 21.21, update backbround CR to Indiolo_07 (8x larger)
+monitor column H2 21.21 error 0.1
+//
+// >>chng 05 jul 17, from 12.85 to 12.35, first run in 6 mo
+// >>chng 07 jan 10, from 12.35 to 12.44, H3+ to McCall rates
+// >>chng 11 dec 12, from 12.44 to 12.53, bug-fix for updating grain opacity (r5759)
+// >>chng 12 apr 09, from 12.53 to 13.32, update backbround CR to Indiolo_07 (8x larger)
+monitor column CO 13.32 error 0.2 
+// 
+// >>chng 11 jul 16, add these
+// >>chng 11 jul 16, from 10 to 12.09, add column density monitors
+// >>chng 11 nov 16, from 12.09 to 11.97, adjust newmole monitors
+// >>chng 12 apr 09, from 11.97 to 12.78, update backbround CR to Indiolo_07 (8x larger)
+monitor column density H3+  12.78 error 0.1
+// >>chng 11 jul 16, from 10 to 11.21, add column density monitors
+// >>chng 11 nov 16, from 11.21 to 11.13, adjust newmole monitors
+// >>chng 12 apr 09, from 11.13 to 11.99, update backbround CR to Indiolo_07 (8x larger)
+monitor column density H2+  11.99 error 0.1
+// >>chng 11 jul 16, from 10 to 10.74, add column density monitors
+// >>chng 11 nov 16, from 10.74 to 10.8, adjust newmole monitors
+// >>chng 12 apr 09, from 10.8 to 10.91, update backbround CR to Indiolo_07 (8x larger)
+monitor column density H-   10.91 error 0.1
+// >>chng 11 jul 16, from 10 to 21.34, add column density monitors
+// >>chng 11 nov 16, from 21.34 to 21.26, adjust newmole monitors
+// >>chng 12 apr 09, from 21.26 to 21.21, update backbround CR to Indiolo_07 (8x larger)
+monitor column density H2g  21.21 error 0.1
+// >>chng 11 jul 16, from 10 to 15.33, add column density monitors
+// >>chng 11 nov 16, from 15.33 to 15.07, adjust newmole monitors
+monitor column density H2*  15.07 error 0.1
+// >>chng 11 jul 16, from 10 to 10.36, add column density monitors
+// >>chng 12 apr 09, from 10.36 to 11.23, update backbround CR to Indiolo_07 (8x larger)
+monitor column density HeH+ 11.23 error 0.1
+// >>chng 11 jul 16, from 10 to 9.726, add column density monitors
+// >>chng 11 nov 16, from 9.726 to 9.791, adjust newmole monitors
+// >>chng 12 jan 06, from 9.791 to 9.831, several H2 model changes
+// >>chng 12 apr 09, from 9.831 to 10.67, update backbround CR to Indiolo_07 (8x larger)
+monitor column density O2   10.67 error 0.1
+// >>chng 11 jul 16, from 10 to 11.5, add column density monitors
+// >>chng 12 apr 09, from 11.5 to 12.35, update backbround CR to Indiolo_07 (8x larger)
+monitor column density H2O  12.35 error 0.1
+// >>chng 11 jul 16, from 10 to 12.23, add column density monitors
+// >>chng 11 dec 12, from 12.23 to 12.18, bug-fix for updating grain opacity (r5759)
+// >>chng 12 apr 09, from 12.18 to 12.05, update backbround CR to Indiolo_07 (8x larger)
+monitor column density C2   12.05 error 0.1
+// >>chng 11 jul 16, from 10 to 9.56, add column density monitors
+// >>chng 11 dec 12, from 9.56 to 9.505, bug-fix for updating grain opacity (r5759)
+// >>chng 12 apr 09, from 9.505 to 9.386, update backbround CR to Indiolo_07 (8x larger)
+monitor column density C3   9.386 error 0.1
+// >>chng 11 jul 16, from 10 to 8.223, add column density monitors
+// >>chng 12 apr 09, from 8.223 to 9.04, update backbround CR to Indiolo_07 (8x larger)
+monitor column density SiO  9.04 error 0.1
+// >>chng 11 jul 16, from 10 to 12.31, add column density monitors
+// >>chng 12 apr 09, from 12.31 to 13.11, update backbround CR to Indiolo_07 (8x larger)
+monitor column density OH   13.11 error 0.1
+// >>chng 11 jul 16, from 10 to 5.834, add column density monitors
+// >>chng 11 nov 16, from 5.834 to 5.792, adjust newmole monitors
+// >>chng 12 apr 09, from 5.792 to 5.943, update backbround CR to Indiolo_07 (8x larger)
+monitor column density CN   5.943 error 0.1
+// >>chng 11 jul 16, from 10 to 12.77, add column density monitors
+// >>chng 11 dec 12, from 12.77 to 12.72, bug-fix for updating grain opacity (r5759)
+// >>chng 12 apr 09, from 12.72 to 12.67, update backbround CR to Indiolo_07 (8x larger)
+monitor column density CH   12.67 error 0.1
+//
+// >>chng 05 jul 17, from 660 to 450 first run in 6 mo
+// >>chng 08 dec 08, from 450 to 344, upper limit -> equals (r2515)
+// >>chng 09 jan 16, from 344 to 345, average of 9 runs
+// >>chng 12 jan 06, from 345 to 324, several H2 model changes
+monitor nzone 324
+//
+// >>chng 04 dec 08, from 4 to 7 co-ion feedback, check converg
+// >>chng 08 dec 08, from 7 to 3.52, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 3.52 to 14.4, merging newsolvers branch
+// >>chng 09 jan 16, from 14.4 to 14.29 (error 0.05), average of 9 runs
+// >>chng 09 aug 02, from 14.4 to 14.0 (error 0.07), average of 3 runs
+// >>chng 11 jun 14, from 14 to 12.23, new Te solver
+// >>chng 11 jul 15, from 12.23 to 13.03 mean icc gcc cloud9
+// >>chng 11 dec 12, from 13.03 to 11.92, bug-fix for updating grain opacity (r5759)
+// >>chng 12 mar 07, from 11.92 to 9.877, renorm to r5961 results
+// >>chng 12 apr 09, from 9.877 to 8.966, update backbround CR to Indiolo_07 (8x larger)
+// >>chng 12 aug 16, from 8.966 to 9.535, fix radasc bug from r6346
+// >>chng 12 aug 16, from 9.535 to 8.914, further fix of Rawlings H2 rates
+monitor itrzn 8.914 error 0.07
+//
+// these were correct on 2004 dec 30, but command does not yet work
+// >>chng 11 nov 16, from 21.26 to 21.19, adjust newmole monitors
+// >>chng 12 apr 09, from 21.19 to 21.15, update backbround CR to Indiolo_07 (8x larger)
+monitor H2 column density level 0  0  21.15 error 0.1
+// >>chng 11 nov 16, from 20.62 to 20.41, adjust newmole monitors
+// >>chng 12 oct 22, from 20.41 to 20.37, zone tau in rt_line_one
+monitor H2 column density level 0  1  20.37 error 0.1
+// 
+// >>chng 05 sep 08 from 18.35 to 18.32, first run in some time
+// >>chng 11 nov 16, from 18.32 to 13.89, adjust newmole monitors
+// >>chng 12 jan 06, from 13.89 to 17.91, several H2 model changes
+monitor H2 column density level 0  2  17.91 error 0.1
+// 
+// >>chng 05 sep 08 from 17.33 to 17.27, first run in some time
+// >>chng 11 nov 16, from 17.27 to 14.19, adjust newmole monitors
+// >>chng 12 jan 06, from 14.19 to 17.03, several H2 model changes
+monitor H2 column density level 0  3  17.03 error 0.1
+//
+// >>chng 05 jul 17, from 16.21 to 16.14, first run in 6 mo
+// >>chng 07 jan 10, from 16.14 to 16.10, H3+ to McCall rates
+// >>chng 08 sep 25, from 16.1 to 16.06, remove damper on line pump (r2367)
+// >>chng 11 nov 16, from 16.06 to 15.74, adjust newmole monitors
+// >>chng 12 jan 06, from 15.74 to 15.84, several H2 model changes
+// >>chng 12 apr 09, from 15.84 to 15.88, update backbround CR to Indiolo_07 (8x larger)
+monitor H2 column density level 0  4  15.88 error 0.1
+//
+// >>chng 05 sep 08 from 15.84 to 15.80, first run in some time
+// >>chng 11 nov 16, from 15.8 to 15.71, adjust newmole monitors
+// >>chng 12 jan 06, from 15.71 to 15.62, several H2 model changes
+monitor H2 column density level 0  5  15.62 error 0.1
+// 
+// >>chng 05 sep 08 from 14.85 to 14.79, first run in some time
+// >>chng 11 nov 16, from 14.79 to 14.74, adjust newmole monitors
+// >>chng 12 jan 06, from 14.74 to 14.67, several H2 model changes
+monitor H2 column density level 0  6  14.67 error 0.1
+// >>chng 12 jan 06, from 14.83 to 14.7, several H2 model changes
+monitor H2 column density level 0  7  14.7 error 0.15
+// >>chng 11 dec 12, from 13.98 to 14.02, bug-fix for updating grain opacity (r5759)
+// >>chng 12 jan 06, from 14.02 to 13.92, several H2 model changes
+monitor H2 column density level 0  8  13.92 error 0.1
+// >>chng 12 jan 06, from 14.14 to 13.97, several H2 model changes
+monitor H2 column density level 0  9  13.97 error 0.15
+//
+// >>chng 05 jul 17, from 13.45 to 13.37, first run in 6 mo
+// >>chng 05 sep 08, from 13.37 to 13.31, first run in some time
+// >>chng 08 aug 02, from 13.31 to 13.25 changes over past month
+// >>chng 11 nov 16, from 13.25 to 12.87, adjust newmole monitors
+// >>chng 12 jan 06, from 12.87 to 12.91, several H2 model changes
+// >>chng 12 apr 09, from 12.91 to 12.96, update backbround CR to Indiolo_07 (8x larger)
+monitor H2 column density level 1  0  12.96 error 0.1
+//
+// >>chng 05 sep 08, from 14.00 to 13.91, first run in some time
+// >>chng 08 sep 25, from 13.91 to 13.87, remove damper on line pump (r2367)
+// >>chng 11 nov 16, from 13.87 to 13.36, adjust newmole monitors
+// >>chng 12 jan 06, from 13.36 to 13.51, several H2 model changes
+monitor H2 column density level 1  1  13.51 error 0.1
+//
+// >>chng 05 jul 17, from 13.94 to 13.86, first run in 6 mo
+// >>chng 05 sep 08, from 13.86 to 13.80, first run in some time
+// >>chng 08 aug 02, from 13.80 to 13.74 changes over past month
+// >>chng 11 nov 16, from 13.74 to 12.22, adjust newmole monitors
+// >>chng 12 jan 06, from 12.22 to 13.39, several H2 model changes
+// >>chng 12 apr 09, from 13.39 to 13.44, update backbround CR to Indiolo_07 (8x larger)
+monitor H2 column density level 1  2  13.44 error 0.1
+//
+// >>chng 05 sep 08, from 14.07 to 13.97, first run in some time
+// >>chng 11 nov 16, from 13.97 to 13.39, adjust newmole monitors
+// >>chng 12 jan 06, from 13.39 to 13.59, several H2 model changes
+monitor H2 column density level 1  3  13.59 error 0.1
+//
+c h2_HTT91.in
+
+This is the Hollenbach et al 1991 Low-density PDR
+The case b command appears because the Lyman lines are
+vastly optically thick in this environment. 
+If the command is removed the Lyman lines will be optically thin,
+which will result in fast fluorescent excitation of the
+(nearly totally neutral) hydrogen atom.  
+
+there is very little CO in this model since it is not thick enough
+for the UV pumping lines to become optically thick

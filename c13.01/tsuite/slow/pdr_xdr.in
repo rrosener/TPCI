@@ -1,0 +1,104 @@
+title XDR sim
+//
+// commands controlling continuum
+CMB
+ionization parameter -2.5
+AGN 6.00 -1.40 -0.5 -1.0
+extinguish 23 
+//
+// commands for density & abundances 
+hden 3.5
+abundances ism
+grains PAH 3 
+//
+// commands controlling geometry
+stop H2 column density 22.0
+sphere
+stop temperature linear 3
+//
+// other commands for details
+normalize to "C  2" 157.6m
+iterate 
+Case B // to prevent continuum fluorescent excitation of H I 
+cosmic ray rate -16.3
+//
+// commands controlling output print and save commands
+save performance "pdr_xdr.per"
+save overview "pdr_xdr.ovr"
+save leiden "pdr_xdr.leiden"
+save monitors "pdr_xdr.asr"
+save dr "pdr_xdr.dr"
+//
+// commands giving the monitors
+//
+// >>chng 11 jul 22, from 31.7 to 584.1, first run
+monitor temperature hydrogen 2 584.1 error 0.1
+//
+// >>chng 11 jul 22, from -5.062 to -2.196, first run
+monitor line intensity "C  2" 157.6m -2.196 error 0.1
+//
+// >>chng 11 jul 22, from -6.329 to -3.945, first run
+// >>chng 12 oct 19, from -3.945 to -3.907, update collisional suppression DR
+monitor line intensity "C  1" 609.2m -3.907 error 0.1
+//
+// >>chng 11 jul 22, from -6.746 to -1.845, first run
+monitor line intensity "O  1" 63.17m -1.845 error 0.1
+// >>chng 11 jul 22, from 10 to 22, first run
+monitor column density H2   22 error 0.1
+// >>chng 11 jul 22, from 10 to 17.89, first run
+// >>chng 12 aug 21, from 17.89 to 17.83, fix CRPHOT botches and HD crash
+monitor column density CO   17.83 error 0.1
+// >>chng 11 jul 22, from 10 to 15.62, first run
+monitor column density H3+  15.62 error 0.1
+// >>chng 11 jul 22, from 10 to 14.06, first run
+monitor column density H2+  14.06 error 0.1
+// >>chng 11 jul 22, from 10 to 11.32, first run
+// >>chng 11 nov 16, from 11.32 to 11.26, adjust newmole monitors
+monitor column density H-   11.26 error 0.1
+// >>chng 11 jul 22, from 10 to 22, first run
+monitor column density H2g  22 error 0.1
+// >>chng 11 jul 22, from 10 to 15.89, first run
+monitor column density H2*  15.89 error 0.1
+// >>chng 11 jul 22, from 10 to 12.28, first run
+// >>chng 11 nov 16, from 12.28 to 12.17, adjust newmole monitors
+monitor column density HeH+ 12.17 error 0.1
+// >>chng 11 jul 22, from 10 to 16.06, first run
+// >>chng 12 jun 08, from 16.06 to 16, Updates to grain chemistry
+monitor column density O2   16 error 0.1
+// >>chng 11 jul 22, from 10 to 16.26, first run
+// >>chng 12 aug 21, from 16.26 to 16.22, fix CRPHOT botches and HD crash
+monitor column density H2O  16.22 error 0.1
+// >>chng 11 jul 22, from 10 to 15.33, first run
+// >>chng 11 nov 16, from 15.33 to 15.38, adjust newmole monitors
+// >>chng 12 aug 21, from 15.38 to 15.42, fix CRPHOT botches and HD crash
+monitor column density C2   15.42 error 0.1
+// >>chng 11 jul 22, from 10 to 13.17, first run
+// >>chng 11 nov 16, from 13.17 to 13.24, adjust newmole monitors
+// >>chng 12 aug 21, from 13.24 to 13.3, fix CRPHOT botches and HD crash
+monitor column density C3   13.3 error 0.1
+// >>chng 11 jul 22, from 10 to 14.94, first run
+monitor column density SiO  14.94 error 0.1
+// >>chng 11 jul 22, from 10 to 16.96, first run
+// >>chng 12 jun 08, from 16.96 to 16.91, Updates to grain chemistry
+monitor column density OH   16.91 error 0.1
+// >>chng 11 jul 22, from 10 to 14.41, first run
+// >>chng 12 aug 21, from 14.41 to 14.45, fix CRPHOT botches and HD crash
+monitor column density CN   14.45 error 0.1
+// >>chng 11 jul 22, from 10 to 16.13, first run
+// >>chng 13 feb 02, from 16.13 to 16.17, BUGFIX, largely undo r6703
+monitor column density CH   16.17 error 0.1
+// 
+// >>chng 12 mar 07, from 14.9 to 8.032, renorm to r5961 results
+monitor itrzn 8.032
+// >>chng 11 jul 22, from 850 to 625, first run
+// >>chng 11 nov 16, from 625 to 734, adjust newmole monitors
+// >>chng 11 dec 12, from 734 to 727, bug-fix for updating grain opacity (r5759)
+// >>chng 12 jun 08, from 727 to 772, Updates to grain chemistry
+monitor nzone 772 error 0.01
+c
+c pdr_xdr.in
+c class pdr 
+c ========================================
+c 
+
+This is an XDR sim proposed by Nick Abel 

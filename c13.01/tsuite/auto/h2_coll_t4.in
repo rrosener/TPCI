@@ -1,0 +1,73 @@
+title coronal equilibrium at 10^4 K
+c
+c commands controlling continuum =========
+coronal 4
+c
+c other commands for details     =========
+iterate
+c
+c commands controlling geometry  =========
+stop column density 15 
+c
+c commands for density & abundances =========
+hden 4
+atom H2
+c
+c commands controlling output    =========
+save performance "h2_coll_t4.per"
+save monitors "h2_coll_t4.asr" 
+save overview "h2_coll_t4.ovr" 
+save continuum "h2_coll_t4.con"  units angstroms 
+c
+c commands giving the monitors    =========
+// >>chng 12 nov 09, from 19.39 to 9.023, first run
+// >>chng 13 feb 13, from 9.023 to 8.656, H2,e-=>H-,H + const p improvements
+monitor H2 column density 8.656 error 0.20
+// >>chng 12 nov 09, from 19.39 to 10.05, first run
+// >>chng 13 feb 02, from 10.05 to 10.18, BUGFIX, largely undo r6703 
+// >>chng 13 feb 13, from 10.18 to 9.753, H2,e-=>H-,H + const p improvements
+monitor CO column density 9.753 error 0.20
+//
+// >>chng 13 feb 02, from -3.05 to -3.136, BUGFIX, largely undo r6703 
+monitor ionization Hydrogen  2 -3.136 error 0.15
+//
+monitor ionization Helium    2 -10.87 error 0.30
+//
+// >>chng 13 feb 13, from -2.775 to -2.877, H2,e-=>H-,H + const p improvements
+monitor ionization Carbon    2 -2.877 error 0.20
+//
+// >>chng 13 feb 02, from -2.956 to -3.044, BUGFIX, largely undo r6703 
+monitor ionization Nitrogen  2 -3.044 error 0.15
+//
+// >>chng 13 feb 02, from -3.153 to -3.243, BUGFIX, largely undo r6703 
+monitor ionization Oxygen    2 -3.243 error 0.15
+//
+// >>chng 13 feb 02, from -1.302 to -1.215, BUGFIX, largely undo r6703 
+monitor ionization Magnesium 1 -1.215  error 0.1
+//
+// >>chng 13 feb 02, from -2.987 to -2.914, BUGFIX, largely undo r6703 
+monitor ionization Aluminium 1 -2.914 error 0.1
+//
+// >>chng 13 feb 02, from -0.7942 to -0.7013, BUGFIX, largely undo r6703 
+// >>chng 13 feb 13, from -0.7013 to -0.6344, H2,e-=>H-,H + const p improvements
+monitor ionization Silicon   1 -0.6344 error 0.15
+//
+// >>chng 13 feb 13, from -0.8323 to -1.144, H2,e-=>H-,H + const p improvements
+monitor ionization Sulphur   2 -1.144 error 0.15
+//
+// >>chng 13 feb 02, from -3.838 to -3.927, BUGFIX, largely undo r6703 
+// >>chng 13 feb 13, from -3.927 to -3.773, H2,e-=>H-,H + const p improvements
+monitor ionization Argon     2 -3.773 error 0.1 
+//
+// >>chng 13 feb 02, from 1 to 0.9227, BUGFIX, largely undo r6703 
+// >>chng 13 feb 13, from 0.9227 to 0.9605, H2,e-=>H-,H + const p improvements
+monitor eden 0.9605 error 0.1
+c
+c h2_coll_t4.in
+c class coronal  
+c ========================================
+
+this tests conditions of collisional equilibrium at low densities
+
+atom h2 included to test results of large model
+Hden is 4 (coll_tx series is 10) to reproduce conditinos for major bug)

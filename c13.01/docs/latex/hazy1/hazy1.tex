@@ -1,0 +1,118 @@
+\documentclass[12pt]{book}
+% !TEX root = hazy1.tex
+%\includeonly{intro}
+%\includeonly{define}
+%\includeonly{cmdintro}
+%\includeonly{cont-def}
+%\includeonly{cont-lum}
+%\includeonly{cont-shp}
+%\includeonly{compos}
+%\includeonly{density}
+%\includeonly{geometry}
+%\includeonly{optdepth}
+%\includeonly{therm}
+%\includeonly{dynamics-time}
+%\includeonly{stopping}
+%\includeonly{conout}
+%\includeonly{optimize}
+%\includeonly{grid}
+%\includeonly{miscell}
+%\includeonly{latex_style}
+
+\input{../head_info}
+\input{../common/macros}
+\input{../variables}
+
+\begin{document}
+\frontmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  title page
+\begin{titlepage}
+\begin{center}
+
+\Huge
+Hazy\\
+\Large
+\emph{a brief introduction to \Cloudy\ C\VERSION}\\
+\LARGE
+1. Introduction and commands
+
+\begin{figure}
+\begin{center}
+\includegraphics[clip=on,width=\columnwidth,height=0.6\textheight,keepaspectratio]{CrabNebulaSpectra.pdf}
+\end{center}
+\end{figure}
+
+\vspace{10 mm }
+\LARGE
+\emph{Cloudy \& Associates} \\
+\Large
+\href{http://www.nublado.org}{www.nublado.org} \\
+\normalsize
+\today
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page with one figure and boilerplate text
+\clearpage
+\input{../frontis_common}
+\vspace{5mm}
+\noindent
+{\small
+{\em Cover image:
+Two models of the molecular cores in Crab Nebula filaments are shown.
+The upper panel is a scenario where shocks or other energy sources maintain
+the temperature of the filament while the lower panel shows the case where
+the synchrotron continuum energizes the filaments.
+\htwo\ and CO emission lines are labeled in the lower panel. 
+The red circles in the upper panel compares the  predicted shape of the dust thermal emission peak at 70 microns with the shape found from the Herschel observations by Gomez et al.
+The
+entire spectrum, including \htwo, CO, and dust emission, is computed self consistently 
+by specifying only the composition, density, and column
+density of the gas, and the SED and flux of ionizing photons and particles. 
+Figure prepared by Jack Baldwin and is from 
+\citet{Richardson.C12The-Nature-of-the-H2-Emitting-Gas-in-the-Crab-Nebula}.
+}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% table of contents page - only include top two levels
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+\mainmatter
+% proofed 1 - read over latex file, remove dead xrefs,
+% include figures, make xregs to figs and tables live
+% NB the equations have not been checked
+% proofed 2 - print document and read in detail
+\include{intro}      
+\include{define}     
+\include{cmdintro}   
+\include{cont-def}   
+\include{cont-lum}   
+\include{cont-shp}   
+\include{compos}     
+\include{density}    
+\include{geometry}   
+\include{optdepth}   
+\include{therm}      
+\include{ControllingModelAtoms}      
+\include{dynamics-time}
+\include{stopping}   
+\include{conout}     
+\include{optimize}   
+\include{grid}       
+\include{miscell}    
+\appendix
+\include{vanhoof_grain_model}
+\include{vanhoof_atmosphere_grids}
+\include{latex_style}
+\backmatter
+\bibliographystyle{plainnat}
+\bibliography{../common/bibliography2}
+
+\end{document}

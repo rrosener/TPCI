@@ -1,0 +1,134 @@
+title BLR model, density 1e09 cm-3, flux of H-ion phots 1e20 cm2 s-1
+c
+c commands controlling continuum =========
+table agn
+phi(h) 20
+c
+c commands for density & abundances =========
+hden 9
+c
+c commands controlling geometry  =========
+stop column density 23
+c
+c other commands for details     =========
+init "c84.ini"
+iterate convergence 
+c these are to try to speed things up
+no level2 lines
+c
+c commands controlling output    =========
+normalize to "totl" 1216 100 
+print line faint 1  // get rid of lots of faint lines 
+save performance "blr_n09_p20.per"
+save monitors "blr_n09_p20.asr" last
+save overview "blr_n09_p20.ovr" last
+save dr "blr_n09_p20.dr" last 
+save continuum units Angstroms "blr_n09_p20.con" last 
+save convergence reason "blr_n09_p20.cvr"
+c
+c commands giving the monitors    =========
+// strong blr lines
+// >>chng 06 nov 29, from 8.457 to 8.392, Badnell DR turned on
+// >>chng 10 aug 12, from 8.392 to 8.369, fix botches related to r4125; star botches from recent continuum mesh changes
+// >>chng 11 jul 12, from 8.369 to 8.417, enable fit to Badnell DR suppression
+// >>chng 12 nov 01, from 8.417 to 8.437, Chianti experimental levels, revised Badnell DR suppression
+// >>chng 13 feb 02, from 8.437 to 8.396, BUGFIX, largely undo r6703 
+monitor line luminosity "totl"  1035 8.396 //total of sum of both O VI comp
+// 
+// >>chng 08 apr 30, from 8.290 to 8.269 H, He topoff change
+// >>chng 12 aug 06, from 8.269 to 8.291, bugfix - include Pelec_esc in several places
+monitor line luminosity "totl"  1216 8.291 //total Hydrogen Lyman-alpha 1215.67 
+// 
+//total of sum of both N V comp
+// >>chng 06 feb 03, from 7.117 to 7.143, guess dr to Badnell mean
+// >>chng 06 nov 29, from 7.143 to 7.267, Badnell DR turned on
+// >>chng 07 oct 03, from 7.267 to 7.287 drift down
+// >>chng 08 apr 30, from 7.287 to 7.26, H, He topoff change
+// >>chng 10 aug 12, from 7.26 to 7.212, fix botches related to r4125; star botches from recent continuum mesh changes
+// >>chng 11 jul 12, from 7.212 to 7.114, enable fit to Badnell DR suppression
+// >>chng 13 feb 02, from 7.114 to 7.156, BUGFIX, largely undo r6703 
+monitor line luminosity "totl"  1240 7.156 error 0.1
+//
+//total of sum of both Si IV comp
+// >>chng 06 feb 03, from 5.809 to 5.851, guess dr to Badnell mean
+// >>chng 06 nov 29, from 5.851 to 5.828, Badnell DR turned on
+// >>chng 07 jan 20, from 5.828 to 5.860, e2 bug
+// >>chng 08 sep 25, from 5.86 to 5.82, remove damper on line pump (r2367)
+// >>chng 09 feb 23, from 5.82 to 5.764, remove otslin, otscon dampers (PR #84, r2758)
+// >>chng 11 jul 12, from 5.764 to 5.723, enable fit to Badnell DR suppression
+// >>chng 12 oct 22, from 5.723 to 5.696, zone tau in rt_line_one
+// >>chng 13 feb 02, from 5.696 to 5.727, BUGFIX, largely undo r6703 
+monitor line luminosity "totl"  1397 5.727
+//
+//total O IV] 1402 
+// >>chng 06 feb 03, from 5.837 to 5.920, guess dr to Badnell mean
+// >>chng 06 nov 24, from 5.920 to 5.939, turn on Badnell RR
+// >>chng 06 nov 29, from 5.939 to 6.272, Badnell DR turned on
+// >>chng 07 apr 30, from 6.272 to 6.302, log DR average, use mix S DR
+// >>chng 08 apr 20, incr error to more realistic 10%
+// >>chng 08 apr 30, from 6.30 to 6.24, H, He topoff change
+// >>chng 11 jul 12, from 6.24 to 6.008, enable fit to Badnell DR suppression
+// >>chng 12 oct 22, from 6.008 to 6.046, zone tau in rt_line_one
+// >>chng 12 nov 01, from 6.046 to 5.828, Chianti experimental levels, revised Badnell DR suppression
+// >>chng 13 feb 02, from 5.828 to 6.077, BUGFIX, largely undo r6703 
+monitor line luminosity "totl"  1402 6.077 0.1
+// 
+//total of sum of both C IV comp
+// >>chng 06 nov 24, from 7.016 to 7.037, turn on Badnell RR
+// >>chng 06 nov 29, from 7.037 to 7.064, Badnell DR turned on
+// >>chng 08 apr 30, from 7.06 to 7.04, H, He topoff change
+monitor line luminosity "totl"  1549 7.04 error 0.1
+//
+// >>chng 09 jun 28, from 1 to 6.824, check convergence of outward Hb
+// >>chng 11 sep 15, from 6.824 to 6.8, Chianti for Fe moderate to high ions
+// >>chng 12 jul 17, from 6.8 to 6.82, minor changes due to r6414
+monitor line luminosity "Inwd" 1549 6.82
+//
+// >>chng 09 jun 28, from 1 to 6.601, check convergence of outward Hb
+// >>chng 09 jul 27, from 6.601 to 6.64, rm test on outward Hb - will create ticket on problems
+// >>chng 09 oct 12, from 6.64 to 6.682, extend fine continuum to lower limit of code by default
+// >>chng 11 aug 05, from 6.682 to 6.479, make PRD redis func for h-like ions; LY_A func is now for H only
+// >>chng 12 aug 06, from 6.479 to 6.578, bugfix - include Pelec_esc in several places
+// >>chng 12 nov 08, from 6.578 to 6.599, fix e-,H2 dissociation rate
+// >>chng 12 nov 11, from 6.599 to 6.586, average mac llvm/cloud9 gcc
+monitor line luminosity "H  1" 4861 6.586 error 0.1
+//
+// >>chng 09 jun 28, from 1 to 6.328, check convergence of outward Hb
+// >>chng 09 oct 12, from 6.328 to 6.36, extend fine continuum to lower limit of code by default
+// >>chng 12 mar 17, from 6.36 to 6.379, adjust near botches after newmole merge
+// >>chng 12 aug 06, from 6.379 to 6.461, bugfix - include Pelec_esc in several places
+monitor line luminosity "Inwd" 4861 6.461
+// 
+// >>chng 07 dec 06, from 7.697 to 7.672, changes in h-like collisions
+// >>chng 08 mar 17, from 7.672 to 7.582, r1844 - mostly iso PopOpc and rt_line_one_tauinc changes
+// >>chng 12 aug 06, from 7.582 to 7.646, bugfix - include Pelec_esc in several places
+monitor line luminosity "he 2"  1640 7.646 //total He II Balmer-alpha 1640
+monitor temperature hydrogen 2 4.497
+//
+// >>chng 08 dec 08, from 6 to 4.702, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 4.702 to 14.1, merging newsolvers branch
+// >>chng 09 jan 16, from 14.1 to 14.15 (error 0.03), average of 10 runs
+// >>chng 09 jan 22, from 14.15 to 12.85, some minor botches as a result of r2655
+// >>chng 09 jun 26, from 12.85 to 12.06, remove several dampers
+monitor itrzn 12.06
+//
+// >>chng 08 dec 08, from 6 to 5, upper limit -> equals (r2515)
+// >>chng 08 dec 13, from 5 to 6, merging newsolvers branch
+// >>chng 09 jun 28, from 6 to 8, check convergence outward Hb
+// >>chng 09 jul 27, from 8 to 6, rm test on outward Hb - will create ticket on problems
+// >>chng 11 aug 05, from 6 to 4, make PRD redis func for h-like ions; LY_A func is now for H only
+monitor niter 4 
+//
+// >>chng 03 dec 07, from 280 to 330, dr resolve metal changes
+// >>chng 05 dec 22, from 330 to 130 (111), rationalize zone asserts
+// >>chng 07 jun 25, from 130 to 155, move h-like sequence over to he-like methods.  
+// >>chng 08 dec 08, from 155 to 114, upper limit -> equals (r2515)
+// >>chng 09 jun 15, from 114 to 121, gradual approach to outer edge
+// >>chng 11 jul 12, from 121 to 127, enable fit to Badnell DR suppression
+monitor nzone 127 
+//
+c blr_n09_p18.in 
+c class blr 
+c ========================================
+
+This is one of the 5 models that sample the LOC plane.

@@ -1,0 +1,13 @@
+    1
+   27   23  4.0490e+04  9.9000e+04  2.9800e+05  8.8630e+05  2.3190e+06  6.4600e+06  1.1730e+07  0.0000e+00
+   27   23  1.7790e-03  1.3800e-02  2.9250e-02  8.6430e-02  7.0080e-02  3.6500e-01  1.1350e+00  0.0000e+00
+-1
+%file:  co_23.rrparams
+%parameters for dielectronic recombination rate coefficients
+Determined from the coefficients listed at:
+   http://amdpp.phys.strath.ac.uk/tamoc/DATA/RR/
+These calculations have been performed by a collaboration of researchers at:
+    Auburn University, Rollins College, and the University of Strathclyde.
+ produced for the CHIANTI atomic database for astrophysical spectroscopy
+ created by Ken Dere (GMU):  Fri Feb  1 15:06:56 2008
+-1
