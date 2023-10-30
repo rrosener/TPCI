@@ -1,0 +1,71 @@
+
+
+   ___  __   __  ____________   
+  / _ \/ /  / / / /_  __/ __ \ 
+ / ___/ /__/ /_/ / / / / /_/ /  
+/ /  /____/\____/ /_/  \____/   
+=============================    v. 4.0  
+
+> System:
+
+! sysconf.out file not found 
+
+> Local time:    Sun Oct 29 09:58:42 2023
+
+> Configuration:
+
+  PHYSICS:          HD
+  DIMENSIONS:       1
+  COMPONENTS:       1
+  TRACERS:          0
+  VARIABLES:        3
+  LOADED MODULES:
+
+  GEOMETRY:         Spherical
+  BODY_FORCE:       EXPLICIT
+  ROTATION:         NO
+  EOS:              Ideal
+  TIME INTEGRATOR:  Runga_Kutta III
+  DIM. SPLITTING:   Yes
+  INTERPOLATION:    WENO 3rd order (Primitive lim)
+
+> Reading pluto.ini (Setup) ...
+
+  CFL   : 0.40
+  Solver: hllc
+  User def par #0 = 0.0000e+00
+  X1 boundary: [beg ... end]  userdef ... userdef
+
+> generating grid (SETGRID) ...
+
+     - Stretched grid on dim 0 (ratio: 1.014498)
+  X1: [ 1.000000,  15.000000], 490 point(s), 2 ghosts
+
+> memory allocation
+> Assigning initial conditions (Startup) ...
+> Normalization Units:
+
+ [Density]:      1.000e-10 (gr/cm^3), 5.979e+13 (1/cm^3)
+ [Pressure]:     1.000e+00 (dyne/cm^2)
+ [Velocity]:     1.000e+05 (cm/s)
+ [Length]:       1.850e+09 (cm)
+ [Temperature]:  1.203e+02 X (p/rho*mu) (K)
+ [Time]:         1.850e+04 (sec), 5.865e-04 (yrs) 
+ 
+> Number of processors: 1
+> Typical proc size:    490
+> Writing file #0 (dbl) to disk...
+> Writing file #0 (tab) to disk...
+> Writing file #0 (png) to disk...! PNG library not available
+> Starting computation... 
+
+step:0 ; t = 0.0000e+00 ; dt = 1.0000e-09 ; 0 % ; [0.000000, 0]
+> Cloudy: Solving Irradiation - file #1 
+> Cloudy: Solving Irradiation - file #2 
+step:1000 ; t = 2.5085e-02 ; dt = 2.7798e-05 ; 0 % ; [0.747377, 0]
+> Cloudy: Solving Irradiation - file #3 
+step:2000 ; t = 5.2881e-02 ; dt = 2.7790e-05 ; 0 % ; [2.435730, 0]
+> Cloudy: Solving Irradiation - file #4 
+step:3000 ; t = 8.0661e-02 ; dt = 2.7789e-05 ; 0 % ; [5.074618, 0]
+> Cloudy: Solving Irradiation - file #5 
+d

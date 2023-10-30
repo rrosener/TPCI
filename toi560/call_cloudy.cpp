@@ -564,7 +564,10 @@ void CloudyInputScript(Data *d, Grid *grid, int Cl_ncalls, double x1_dom_len, in
   nleft = cdRead( "init \"spectra.ini\"" );
       
   /* ************* GEOMETRY AND DENSITY STRUCTURE ********** */
-  nleft = cdRead("radius 2.3e11 linear");
+  // nleft = cdRead("radius 2.3e11 linear");
+  //nleft = cdRead("radius 8.9e11 linear");
+  sprintf(chLine, "radius %10.4e linear", semimajor_axis);
+  nleft = cdRead(chLine);
   
   sprintf( chLine , "stop depth %10.4e linear", x1_dom_len);
   //printf("Limit %s\n", chLine);
@@ -638,7 +641,7 @@ void CloudyInputScript(Data *d, Grid *grid, int Cl_ncalls, double x1_dom_len, in
 //   nleft = cdRead( "no line transfer" );
   
   /* *************** PHYSICAL STUFF *********************** */
-  nleft = cdRead( "element limit off -" );
+  nleft = cdRead( "element limit off -2" );
   nleft = cdRead("metals 0 linear");
 //   nleft = cdRead( "element limit off -2.0" );
   nleft = cdRead( "stop temperature linear 5 K" );
@@ -891,12 +894,6 @@ void MapCloudytoPLUTO( Grid *grid, double ***Pl_val, int Pl_k, int Pl_j,
     }
   } 
 }
-
-
-if (counter % 1000!= 0) {
-  lg_solve_rad = false;
- }
-
 
 
 

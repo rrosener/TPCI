@@ -15,7 +15,7 @@ def plot_iters(depths, quantity, starts, title=""):
 
 #Rp = 1.3e9
 R_earth = 6.378e8
-Rp = 2.15 * R_earth
+Rp = 2.9 * R_earth
 
 data = np.loadtxt(sys.argv[1])
 #data = data[-int(len(data)/2):]
@@ -38,7 +38,7 @@ radii = 14.9 - depths/Rp #not exact, found by trial and error
 starts = np.where(np.abs(depths - 0.25) < 1e-3)[0]
 starts = np.append(starts, len(depths))
 print(starts)
-plot_iters(radii, Te, starts, "Te")
+plot_iters(radii, Te, starts, "T_eff")
 plot_iters(radii, HI, starts, "HI")
 plot_iters(radii, HII, starts, "HII")
 plot_iters(radii, HeI, starts, "HeI")
