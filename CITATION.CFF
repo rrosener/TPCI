@@ -1,0 +1,14 @@
+cff-version: 0.0.2
+message: "Test."
+authors:
+- family-names: "Rosener"
+  given-names: "Riley"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+- family-names: "Lisa"
+  given-names: "Mona"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "TPCI"
+version: 0.0.2
+date-released: 2024-12-05
+url: "https://github.com/rrosener/TPCI"
+license: GPL-3.0-or-later
