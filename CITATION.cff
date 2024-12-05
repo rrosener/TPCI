@@ -1,4 +1,4 @@
-cff-version: 0.0.5
+cff-version: 0.0.6
 message: "Test."
 authors:
 - family-names: "Rosener"
@@ -8,7 +8,7 @@ authors:
   given-names: "Mona"
   orcid: "https://orcid.org/0000-0000-0000-0000"
 title: "TPCI"
-version: "0.0.5"
-date-released: 2024-12-05
+version: "0.0.6"
+date-released: "2024-12-05"
 url: "https://github.com/rrosener/TPCI"
 license: "GPL-3.0-or-later"
