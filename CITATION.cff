@@ -1,14 +1,14 @@
-cff-version: 0.0.6
-message: "Test."
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: test
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
 authors:
-- family-names: "Rosener"
-  given-names: "Riley"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-- family-names: "Lisa"
-  given-names: "Mona"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-title: "TPCI"
-version: "0.0.6"
-date-released: "2024-12-05"
-url: "https://github.com/rrosener/TPCI"
-license: "GPL-3.0-or-later"
+  - given-names: Riley
+    family-names: Rosener
+license: GPL-3.0-or-later
+version: 0.0.7
